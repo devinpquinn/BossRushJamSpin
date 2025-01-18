@@ -28,7 +28,7 @@ public class Pip : MonoBehaviour
 		while (t < 0.5f)
 		{
 			t += Time.deltaTime;
-			rectTransform.localScale = Vector3.one * Mathf.Lerp(2, 1, t / 0.5f);
+			rectTransform.localScale = Vector3.one * Mathf.Lerp(3, 1, t / 0.5f);
 			yield return null;
 		}
 	}
