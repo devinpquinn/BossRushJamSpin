@@ -8,12 +8,16 @@ public class Digit : MonoBehaviour
 	
 	private Color normalColor;
 	public Color highlightColor;
+	
+	private GameObject arrows;
 
 	private void Awake()
 	{
 		text = GetComponentInChildren<TextMeshProUGUI>();
 		value = 0;
 		text.text = value.ToString();
+		
+		arrows = transform.Find("Arrows").gameObject;
 	}
 	
 	//highlight digit when mouse is over it
@@ -21,12 +25,16 @@ public class Digit : MonoBehaviour
 	{
 		normalColor = text.color;
 		text.color = highlightColor;
+		
+		arrows.SetActive(true);
 	}
 	
 	//unhighlight digit when mouse leaves it
 	void OnMouseExit()
 	{
 		text.color = normalColor;
+		
+		arrows.SetActive(false);
 	}
 	
 	//if player scrolls mouse wheel while hovering over digit, increase or decrease value
