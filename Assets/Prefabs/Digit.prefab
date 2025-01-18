@@ -474,7 +474,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4545833054529328719}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -100}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -541,7 +541,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockManager: {fileID: 0}
   value: 0
-  highlightColor: {r: 1, g: 1, b: 0.81960785, a: 1}
 --- !u!61 &8423891590024869630
 BoxCollider2D:
   m_ObjectHideFlags: 0
