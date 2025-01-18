@@ -3,8 +3,10 @@ using TMPro;
 
 public class Digit : MonoBehaviour
 {
+	[HideInInspector] public LockManager lockManager;
+	
 	private TextMeshProUGUI text;
-	private int value;
+	[HideInInspector] public int value;
 	
 	private Color normalColor;
 	public Color highlightColor;
@@ -54,6 +56,8 @@ public class Digit : MonoBehaviour
 		if (value > 9)
 			value = 0;
 		text.text = value.ToString();
+		
+		lockManager.CheckCode();
 	}
 	
 	//decrease value by 1; if value is 0, set it to 9; update text
@@ -63,5 +67,7 @@ public class Digit : MonoBehaviour
 		if (value < 0)
 			value = 9;
 		text.text = value.ToString();
+		
+		lockManager.CheckCode();
 	}
 }
