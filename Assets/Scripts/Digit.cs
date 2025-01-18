@@ -6,11 +6,27 @@ public class Digit : MonoBehaviour
 	private TextMeshProUGUI text;
 	private int value;
 	
+	private Color normalColor;
+	public Color highlightColor;
+
 	private void Awake()
 	{
 		text = GetComponentInChildren<TextMeshProUGUI>();
 		value = 0;
 		text.text = value.ToString();
+	}
+	
+	//highlight digit when mouse is over it
+	void OnMouseEnter()
+	{
+		normalColor = text.color;
+		text.color = highlightColor;
+	}
+	
+	//unhighlight digit when mouse leaves it
+	void OnMouseExit()
+	{
+		text.color = normalColor;
 	}
 	
 	//if player scrolls mouse wheel while hovering over digit, increase or decrease value
