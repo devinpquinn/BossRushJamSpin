@@ -9,11 +9,7 @@ public class Digit : MonoBehaviour
 	private TextMeshProUGUI aboveText;
 	private TextMeshProUGUI belowText;
 	[HideInInspector] public int value;
-	
-	private Color normalColor;
-	public Color highlightColor;
-	
-	private GameObject arrows;
+	private Animator anim;
 
 	private void Awake()
 	{
@@ -27,24 +23,19 @@ public class Digit : MonoBehaviour
 		value = 0;
 		text.text = value.ToString();
 		
-		arrows = transform.Find("Arrows").gameObject;
+		anim = GetComponent<Animator>();
 	}
 	
 	//highlight digit when mouse is over it
 	void OnMouseEnter()
 	{
-		normalColor = text.color;
-		text.color = highlightColor;
-		
-		arrows.SetActive(true);
+		anim.Play("Digit_Select");
 	}
 	
 	//unhighlight digit when mouse leaves it
 	void OnMouseExit()
 	{
-		text.color = normalColor;
-		
-		arrows.SetActive(false);
+		anim.Play("Digit_Deselect");
 	}
 	
 	//if player scrolls mouse wheel while hovering over digit, increase or decrease value
