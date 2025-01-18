@@ -6,6 +6,8 @@ public class Digit : MonoBehaviour
 	[HideInInspector] public LockManager lockManager;
 	
 	private TextMeshProUGUI text;
+	private TextMeshProUGUI aboveText;
+	private TextMeshProUGUI belowText;
 	[HideInInspector] public int value;
 	
 	private Color normalColor;
@@ -15,7 +17,13 @@ public class Digit : MonoBehaviour
 
 	private void Awake()
 	{
-		text = GetComponentInChildren<TextMeshProUGUI>();
+		//text is attacked to the child named MainText
+		text = transform.Find("MainText").GetComponent<TextMeshProUGUI>();
+		
+		//find above and below text objects
+		aboveText = transform.Find("AboveText").GetComponent<TextMeshProUGUI>();
+		belowText = transform.Find("BelowText").GetComponent<TextMeshProUGUI>();
+		
 		value = 0;
 		text.text = value.ToString();
 		
@@ -57,6 +65,8 @@ public class Digit : MonoBehaviour
 			value = 0;
 		text.text = value.ToString();
 		
+		UpdateAboveBelowText();
+		
 		lockManager.CheckCode();
 	}
 	
@@ -68,6 +78,14 @@ public class Digit : MonoBehaviour
 			value = 9;
 		text.text = value.ToString();
 		
+		UpdateAboveBelowText();
+		
 		lockManager.CheckCode();
+	}
+	
+	private void UpdateAboveBelowText()
+	{
+		aboveText.text = (value == 0) ? "9" : (value - 1).ToString();
+		belowText.text = (value == 9) ? "0" : (value + 1).ToString();
 	}
 }
