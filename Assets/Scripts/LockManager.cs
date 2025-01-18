@@ -63,6 +63,12 @@ public class LockManager : MonoBehaviour
 		//add code to list of tried codes
 		codesTried.Add(code);
 		
+		//mark progress pip corresponding to code
+		progressPips.MarkPip(code);
+			
+		//update progress bar
+		progressBar.UpdateBar((float)codesTried.Count / Mathf.Pow(10, digits.Count));
+		
 		if(code == secretCode)
 		{
 			Debug.Log(code + " is correct!");
@@ -70,11 +76,6 @@ public class LockManager : MonoBehaviour
 		else
 		{
 			//Debug.Log(code + " is incorrect.");
-			//mark progress pip corresponding to code
-			progressPips.MarkPip(code);
-			
-			//update progress bar
-			progressBar.UpdateBar((float)codesTried.Count / Mathf.Pow(10, digits.Count));
 		}
 	}
 }
