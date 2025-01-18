@@ -7,6 +7,8 @@ public class LockManager : MonoBehaviour
 	
 	private int secretCode;
 	
+	public ProgressPips progressPips;
+	
 	void Start()
 	{
 		FillDigits();
@@ -27,6 +29,9 @@ public class LockManager : MonoBehaviour
 		
 		foreach (Digit digit in digits)
 			digit.lockManager = this;
+			
+		//set up progress pips based on number of possible combinations of digits
+		progressPips.SetupPips((int)Mathf.Pow(10, digits.Count));
 	}
 	
 	void GenerateCode()
@@ -54,7 +59,7 @@ public class LockManager : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log(code + " is incorrect.");
+			//Debug.Log(code + " is incorrect.");
 		}
 	}
 }
