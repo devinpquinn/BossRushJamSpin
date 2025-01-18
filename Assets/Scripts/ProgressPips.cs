@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ProgressPips : MonoBehaviour
 {
 	private List<GameObject> pips;
 	public GameObject pipPrefab;
+	public Color markedColor;
 	
 	public void SetupPips(int numPips)
 	{
@@ -15,5 +17,11 @@ public class ProgressPips : MonoBehaviour
 			GameObject pip = Instantiate(pipPrefab, transform);
 			pips.Add(pip);
 		}
+	}
+	
+	public void MarkPip(int pipIndex)
+	{
+		//change color of pip image at pipIndex to markedColor
+		pips[pipIndex].GetComponent<Image>().color = markedColor;
 	}
 }

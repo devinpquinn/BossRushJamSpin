@@ -6,6 +6,7 @@ public class LockManager : MonoBehaviour
 	public List<Digit> digits;
 	
 	private int secretCode;
+	private List<int> codesTried;
 	
 	public ProgressPips progressPips;
 	
@@ -30,6 +31,9 @@ public class LockManager : MonoBehaviour
 		foreach (Digit digit in digits)
 			digit.lockManager = this;
 			
+		//setup codesTried list
+		codesTried = new List<int>();
+		
 		//set up progress pips based on number of possible combinations of digits
 		progressPips.SetupPips((int)Mathf.Pow(10, digits.Count));
 	}
@@ -53,6 +57,13 @@ public class LockManager : MonoBehaviour
 		//construct int from string
 		int code = int.Parse(codeString);
 		
+		//if code has already been tried, return
+		if (codesTried.Contains(code))
+			return;
+			
+		//add code to list of tried codes
+		codesTried.Add(code);
+		
 		if(code == secretCode)
 		{
 			Debug.Log(code + " is correct!");
@@ -60,6 +71,8 @@ public class LockManager : MonoBehaviour
 		else
 		{
 			//Debug.Log(code + " is incorrect.");
+			//mark progress pip corresponding to code
+			progressPips.MarkPip(code);
 		}
 	}
 }
