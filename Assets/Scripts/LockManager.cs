@@ -4,11 +4,10 @@ using UnityEngine;
 public class LockManager : MonoBehaviour
 {
 	public List<Digit> digits;
-	
 	private int secretCode;
 	private List<int> codesTried;
-	
 	public ProgressPips progressPips;
+	public ProgressBar progressBar;
 	
 	void Start()
 	{
@@ -73,6 +72,9 @@ public class LockManager : MonoBehaviour
 			//Debug.Log(code + " is incorrect.");
 			//mark progress pip corresponding to code
 			progressPips.MarkPip(code);
+			
+			//update progress bar
+			progressBar.UpdateBar((float)codesTried.Count / Mathf.Pow(10, digits.Count));
 		}
 	}
 }
