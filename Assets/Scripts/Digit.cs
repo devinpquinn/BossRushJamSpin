@@ -18,6 +18,9 @@ public class Digit : MonoBehaviour
 	
 	private Coroutine shakeCoroutine;
 	private Vector3 shakeOffset = new Vector3(0, 5, 0);
+	private Vector3 shakeRotation = new Vector3(5, 0, 0);
+	private Vector3 aboveTextBaseRotation;
+	private Vector3 belowTextBaseRotation;
 
 	private void Awake()
 	{
@@ -28,6 +31,9 @@ public class Digit : MonoBehaviour
 		//find above and below text objects
 		aboveText = transform.Find("Texts").Find("AboveText").GetComponent<TextMeshProUGUI>();
 		belowText = transform.Find("Texts").Find("BelowText").GetComponent<TextMeshProUGUI>();
+
+		aboveTextBaseRotation = aboveText.transform.localEulerAngles;
+		belowTextBaseRotation = belowText.transform.localEulerAngles;
 		
 		value = 0;
 		text.text = value.ToString();
@@ -111,14 +117,30 @@ public class Digit : MonoBehaviour
 	private IEnumerator ShakeTextUp()
 	{
 		textParent.transform.localPosition += shakeOffset;
+
+		aboveText.transform.localEulerAngles += shakeRotation;
+		belowText.transform.localEulerAngles -= shakeRotation;
+		
 		yield return new WaitForSeconds(0.05f);
+		
 		textParent.transform.localPosition = Vector3.zero;
+		
+		aboveText.transform.localEulerAngles = aboveTextBaseRotation;
+		belowText.transform.localEulerAngles = belowTextBaseRotation;
 	}
 	
 	private IEnumerator ShakeTextDown()
 	{
 		textParent.transform.localPosition -= shakeOffset;
+		
+		aboveText.transform.localEulerAngles -= shakeRotation;
+		belowText.transform.localEulerAngles += shakeRotation;
+		
 		yield return new WaitForSeconds(0.05f);
+		
 		textParent.transform.localPosition = Vector3.zero;
+		
+		aboveText.transform.localEulerAngles = aboveTextBaseRotation;
+		belowText.transform.localEulerAngles = belowTextBaseRotation;
 	}
 }
