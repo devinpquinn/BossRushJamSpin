@@ -10,6 +10,9 @@ public class Digit : MonoBehaviour
 	private TextMeshProUGUI belowText;
 	[HideInInspector] public int value;
 	private Animator anim;
+	
+	private float lastScrollTime = 0f;
+    private const float scrollCooldown = 0.05f;
 
 	private void Awake()
 	{
@@ -42,10 +45,19 @@ public class Digit : MonoBehaviour
 	void OnMouseOver()
 	{
 		float scroll = Input.GetAxis("Mouse ScrollWheel");
-		if (scroll > 0)
-			Increase();
-		else if (scroll < 0)
-			Decrease();
+        if (Time.time - lastScrollTime >= scrollCooldown)
+        {
+            if (scroll > 0)
+            {
+                Increase();
+                lastScrollTime = Time.time;
+            }
+            else if (scroll < 0)
+            {
+                Decrease();
+                lastScrollTime = Time.time;
+            }
+        }
 	}
 	
 	//increase value by 1; if value is 9, set it to 0; update text
