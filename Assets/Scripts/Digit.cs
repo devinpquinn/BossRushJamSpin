@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class Digit : MonoBehaviour
 {
@@ -12,7 +13,10 @@ public class Digit : MonoBehaviour
 	private Animator anim;
 	
 	private float lastScrollTime = 0f;
-    private const float scrollCooldown = 0.05f;
+	private const float scrollCooldown = 0.05f;
+	
+	private Coroutine shakeCoroutine;
+	private Vector3 shakeOffset = new Vector3(0, 10, 0);
 
 	private void Awake()
 	{
@@ -45,19 +49,19 @@ public class Digit : MonoBehaviour
 	void OnMouseOver()
 	{
 		float scroll = Input.GetAxis("Mouse ScrollWheel");
-        if (Time.time - lastScrollTime >= scrollCooldown)
-        {
-            if (scroll > 0)
-            {
-                Increase();
-                lastScrollTime = Time.time;
-            }
-            else if (scroll < 0)
-            {
-                Decrease();
-                lastScrollTime = Time.time;
-            }
-        }
+		if (Time.time - lastScrollTime >= scrollCooldown)
+		{
+			if (scroll > 0)
+			{
+				Increase();
+				lastScrollTime = Time.time;
+			}
+			else if (scroll < 0)
+			{
+				Decrease();
+				lastScrollTime = Time.time;
+			}
+		}
 	}
 	
 	//increase value by 1; if value is 9, set it to 0; update text
@@ -71,6 +75,11 @@ public class Digit : MonoBehaviour
 		UpdateAboveBelowText();
 		
 		lockManager.CheckCode();
+		
+		if(shakeCoroutine != null)
+			StopCoroutine(shakeCoroutine);
+			
+		shakeCoroutine = StartCoroutine(ShakeTextUp());
 	}
 	
 	//decrease value by 1; if value is 0, set it to 9; update text
@@ -84,11 +93,30 @@ public class Digit : MonoBehaviour
 		UpdateAboveBelowText();
 		
 		lockManager.CheckCode();
+		
+		if(shakeCoroutine != null)
+			StopCoroutine(shakeCoroutine);
+			
+		shakeCoroutine = StartCoroutine(ShakeTextDown());
 	}
 	
 	private void UpdateAboveBelowText()
 	{
 		aboveText.text = (value == 0) ? "9" : (value - 1).ToString();
 		belowText.text = (value == 9) ? "0" : (value + 1).ToString();
+	}
+	
+	private IEnumerator ShakeTextUp()
+	{
+		text.transform.localPosition += shakeOffset;
+		yield return new WaitForSeconds(0.05f);
+		text.transform.localPosition = Vector3.zero;
+	}
+	
+	private IEnumerator ShakeTextDown()
+	{
+		text.transform.localPosition -= shakeOffset;
+		yield return new WaitForSeconds(0.05f);
+		text.transform.localPosition = Vector3.zero;
 	}
 }
