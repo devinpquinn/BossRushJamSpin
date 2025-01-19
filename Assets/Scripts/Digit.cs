@@ -51,12 +51,12 @@ public class Digit : MonoBehaviour
 		float scroll = Input.GetAxis("Mouse ScrollWheel");
 		if (Time.time - lastScrollTime >= scrollCooldown)
 		{
-			if (scroll > 0)
+			if (scroll < 0)
 			{
 				Increase();
 				lastScrollTime = Time.time;
 			}
-			else if (scroll < 0)
+			else if (scroll > 0)
 			{
 				Decrease();
 				lastScrollTime = Time.time;
