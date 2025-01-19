@@ -7,6 +7,7 @@ public class Digit : MonoBehaviour
 	[HideInInspector] public LockManager lockManager;
 	
 	private TextMeshProUGUI text;
+	private Transform textParent;
 	private TextMeshProUGUI aboveText;
 	private TextMeshProUGUI belowText;
 	[HideInInspector] public int value;
@@ -16,16 +17,17 @@ public class Digit : MonoBehaviour
 	private const float scrollCooldown = 0.05f;
 	
 	private Coroutine shakeCoroutine;
-	private Vector3 shakeOffset = new Vector3(0, 10, 0);
+	private Vector3 shakeOffset = new Vector3(0, 5, 0);
 
 	private void Awake()
 	{
 		//text is attacked to the child named MainText
-		text = transform.Find("MainText").GetComponent<TextMeshProUGUI>();
+		text = transform.Find("Texts").Find("MainText").GetComponent<TextMeshProUGUI>();
+		textParent = text.transform.parent;
 		
 		//find above and below text objects
-		aboveText = transform.Find("AboveText").GetComponent<TextMeshProUGUI>();
-		belowText = transform.Find("BelowText").GetComponent<TextMeshProUGUI>();
+		aboveText = transform.Find("Texts").Find("AboveText").GetComponent<TextMeshProUGUI>();
+		belowText = transform.Find("Texts").Find("BelowText").GetComponent<TextMeshProUGUI>();
 		
 		value = 0;
 		text.text = value.ToString();
@@ -108,15 +110,15 @@ public class Digit : MonoBehaviour
 	
 	private IEnumerator ShakeTextUp()
 	{
-		text.transform.localPosition += shakeOffset;
+		textParent.transform.localPosition += shakeOffset;
 		yield return new WaitForSeconds(0.05f);
-		text.transform.localPosition = Vector3.zero;
+		textParent.transform.localPosition = Vector3.zero;
 	}
 	
 	private IEnumerator ShakeTextDown()
 	{
-		text.transform.localPosition -= shakeOffset;
+		textParent.transform.localPosition -= shakeOffset;
 		yield return new WaitForSeconds(0.05f);
-		text.transform.localPosition = Vector3.zero;
+		textParent.transform.localPosition = Vector3.zero;
 	}
 }
