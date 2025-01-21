@@ -28,7 +28,7 @@ public class Pip : MonoBehaviour
 	{
 		if(state == PipState.DangerEmpty)
 		{
-			Debug.Log("Hero is hit!");
+			LockManager.instance.Damage();
 		}
 		
 		StartCoroutine(SetHero());
@@ -53,7 +53,7 @@ public class Pip : MonoBehaviour
 		}
 		else if(state == PipState.Hero)
 		{
-			Debug.Log("Hero is hit!");
+			LockManager.instance.Damage();
 		}	
 	}
 	

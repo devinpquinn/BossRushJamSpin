@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI
+;
 
 public class LockManager : MonoBehaviour
 {
@@ -11,7 +13,11 @@ public class LockManager : MonoBehaviour
 	public ProgressPips progressPips;
 	public ProgressBar progressBar;
 	
-	public int heroPip = -1;
+	public Image healthBarL;
+	public Image healthBarR;
+	private float damage = 0;
+	
+	[HideInInspector] public int heroPip = -1;
 	
 	void Awake()
 	{
@@ -90,6 +96,19 @@ public class LockManager : MonoBehaviour
 		else
 		{
 			//Debug.Log(code + " is incorrect.");
+		}
+	}
+	
+	public void Damage()
+	{
+		damage += 0.1f;
+		
+		healthBarL.fillAmount = Mathf.Lerp(0, 1, damage / 0.5f);
+		healthBarR.fillAmount = Mathf.Lerp(0, 1, (damage - 0.5f) / 0.5f);
+		
+		if(damage >= 1)
+		{
+			Debug.Log("Hero destroyed!");
 		}
 	}
 }
