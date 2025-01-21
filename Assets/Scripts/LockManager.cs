@@ -3,11 +3,19 @@ using UnityEngine;
 
 public class LockManager : MonoBehaviour
 {
+	public static LockManager instance;
 	public List<Digit> digits;
 	private int secretCode;
 	private List<int> codesTried;
 	public ProgressPips progressPips;
 	public ProgressBar progressBar;
+	
+	public int heroPip = -1;
+	
+	void Awake()
+	{
+		instance = this;
+	}
 	
 	void Start()
 	{
