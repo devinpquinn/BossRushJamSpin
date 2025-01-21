@@ -31,16 +31,16 @@ public class Pip : MonoBehaviour
 		//set color to heroColor and scale local scale from 2 to 2.5 over 0.1 seconds
 		state = PipState.Hero;
 		image.color = heroColor;
-		rectTransform.localScale = Vector3.one * 3f;
+		rectTransform.localScale = Vector3.one * 1.5f;
 		
 		float t = 0;
 		while (t < 0.1f)
 		{
 			t += Time.deltaTime;
-			rectTransform.localScale = Vector3.one * Mathf.Lerp(3f, 1.5f, t / 0.1f);
+			rectTransform.localScale = Vector3.one * Mathf.Lerp(1.5f, 3f, t / 0.1f);
 			yield return null;
 		}
-		rectTransform.localScale = Vector3.one * 1.5f;
+		rectTransform.localScale = Vector3.one * 3f;
 	}
 	
 	private IEnumerator FadeHeroToMarked()
@@ -48,13 +48,13 @@ public class Pip : MonoBehaviour
 		//set color to markedColor and scale local scale from 2 to 1 over 0.5 seconds
 		state = PipState.Marked;
 		image.color = markedColor;
-		rectTransform.localScale = Vector3.one * 1.75f;
+		rectTransform.localScale = Vector3.one * 3f;
 		
 		float t = 0;
 		while (t < 0.5f)
 		{
 			t += Time.deltaTime;
-			rectTransform.localScale = Vector3.one * Mathf.Lerp(1.75f, 1, t / 0.5f);
+			rectTransform.localScale = Vector3.one * Mathf.Lerp(3f, 1, t / 0.5f);
 			yield return null;
 		}
 		rectTransform.localScale = Vector3.one;
