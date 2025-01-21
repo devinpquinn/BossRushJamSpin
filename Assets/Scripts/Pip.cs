@@ -6,6 +6,8 @@ using Unity.VisualScripting;
 public class Pip : MonoBehaviour
 {
 	private Image image;
+	private BoxCollider2D boxCollider;
+	private Vector2 baseBoxColliderSize;
 	private RectTransform rectTransform;
 	public PipState state = PipState.Empty;
 	private Color originalColor;
@@ -16,6 +18,8 @@ public class Pip : MonoBehaviour
 	void Awake()
 	{
 		image = GetComponent<Image>();
+		boxCollider = GetComponent<BoxCollider2D>();
+		baseBoxColliderSize = boxCollider.size;
 		originalColor = image.color;
 		rectTransform = GetComponent<RectTransform>();
 	}
@@ -75,6 +79,9 @@ public class Pip : MonoBehaviour
 		image.color = heroColor;
 		rectTransform.localScale = Vector3.one * 5f;
 		
+		//disable box collider
+		boxCollider.enabled = false;
+		
 		float t = 0;
 		while (t < 0.1f)
 		{
@@ -82,7 +89,11 @@ public class Pip : MonoBehaviour
 			rectTransform.localScale = Vector3.one * Mathf.Lerp(5f, 3f, t / 0.1f);
 			yield return null;
 		}
+		
 		rectTransform.localScale = Vector3.one * 3f;
+		
+		boxCollider.enabled = true;
+		boxCollider.size = baseBoxColliderSize / 3f;
 	}
 	
 	private IEnumerator FadeHeroToMarked()
@@ -92,6 +103,9 @@ public class Pip : MonoBehaviour
 		image.color = markedColor;
 		rectTransform.localScale = Vector3.one * 2.5f;
 		
+		//disable box collider
+		boxCollider.enabled = false;
+		
 		float t = 0;
 		while (t < 0.5f)
 		{
@@ -99,7 +113,11 @@ public class Pip : MonoBehaviour
 			rectTransform.localScale = Vector3.one * Mathf.Lerp(2.5f, 1, t / 0.5f);
 			yield return null;
 		}
+		
 		rectTransform.localScale = Vector3.one;
+		
+		boxCollider.enabled = true;
+		boxCollider.size = baseBoxColliderSize;
 	}
 	
 	private void OnTriggerEnter2D(Collider2D other)
