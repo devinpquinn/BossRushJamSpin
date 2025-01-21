@@ -71,6 +71,11 @@ public class Pip : MonoBehaviour
 		}
 	}
 	
+	public void Bump()
+	{
+		StartCoroutine(FadeHeroToMarked());
+	}
+	
 	private IEnumerator SetHero()
 	{
 		//set color to heroColor and scale local scale from 2 to 2.5 over 0.1 seconds

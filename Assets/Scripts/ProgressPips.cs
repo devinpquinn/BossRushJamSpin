@@ -27,4 +27,9 @@ public class ProgressPips : MonoBehaviour
 		LockManager.instance.heroPip = pipIndex;
 		pips[pipIndex].Mark();
 	}
+	
+	public void BumpPip(int pipIndex)
+	{
+		pips[pipIndex].Bump();
+	}
 }
