@@ -48,13 +48,13 @@ public class Pip : MonoBehaviour
 		//set color to markedColor and scale local scale from 2 to 1 over 0.5 seconds
 		state = PipState.Marked;
 		image.color = markedColor;
-		rectTransform.localScale = Vector3.one * 3f;
+		rectTransform.localScale = Vector3.one * 2.5f;
 		
 		float t = 0;
 		while (t < 0.5f)
 		{
 			t += Time.deltaTime;
-			rectTransform.localScale = Vector3.one * Mathf.Lerp(3f, 1, t / 0.5f);
+			rectTransform.localScale = Vector3.one * Mathf.Lerp(2.5f, 1, t / 0.5f);
 			yield return null;
 		}
 		rectTransform.localScale = Vector3.one;

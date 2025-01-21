@@ -599,6 +599,7 @@ MonoBehaviour:
   digits: []
   progressPips: {fileID: 1062601585}
   progressBar: {fileID: 1833346006}
+  heroPip: -1
 --- !u!224 &899485560 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 391201050540535600, guid: 7aec86174e87e084596cda9a6455ae6a, type: 3}
@@ -736,8 +737,8 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 8, y: 8}
-  m_Spacing: {x: 8, y: 8}
+  m_CellSize: {x: 5.4, y: 5.4}
+  m_Spacing: {x: 10.8, y: 10.8}
   m_Constraint: 2
   m_ConstraintCount: 10
 --- !u!114 &1062601585
