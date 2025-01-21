@@ -109,7 +109,7 @@ public class LockManager : MonoBehaviour
 		healthBarR.fillAmount = Mathf.Lerp(0, 1, (damage - 0.5f) / 0.5f);
 		healthBarR.transform.parent.localScale = Vector3.one * Mathf.Lerp(1, 1.5f, (damage - 0.5f) / 0.5f);
 		
-		if(damage > 1)
+		if(damage > 1.01f)
 		{
 			Debug.Log("Hero destroyed!");
 		}
