@@ -9,6 +9,7 @@ public class Pip : MonoBehaviour
 	public PipState state = PipState.Empty;
 	public Color markedColor;
 	public Color heroColor;
+	public Color dangerColor;
 	
 	void Awake()
 	{
@@ -21,9 +22,41 @@ public class Pip : MonoBehaviour
 		StartCoroutine(SetHero());
 	}
 	
-	public void Fade()
+	public void Unmark()
 	{
 		StartCoroutine(FadeHeroToMarked());
+	}
+	
+	public void SetDanger()
+	{
+		if(state == PipState.Empty)
+		{
+			state = PipState.DangerEmpty;
+			image.color = dangerColor;
+		}	
+		else if(state == PipState.Marked)
+		{
+			state = PipState.DangerMarked;
+			image.color = dangerColor;
+		}
+		else if(state == PipState.Hero)
+		{
+			Debug.Log("Hero is hit!");
+		}	
+	}
+	
+	public void SetSafe()
+	{
+		if(state == PipState.DangerEmpty)
+		{
+			state = PipState.Empty;
+			image.color = Color.white;
+		}	
+		else if(state == PipState.DangerMarked)
+		{
+			state = PipState.Marked;
+			image.color = markedColor;
+		}
 	}
 	
 	private IEnumerator SetHero()
@@ -66,5 +99,6 @@ public enum PipState
 	Empty,
 	Marked,
 	Hero,
-	Danger
+	DangerEmpty,
+	DangerMarked
 }

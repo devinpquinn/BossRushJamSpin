@@ -22,7 +22,7 @@ public class ProgressPips : MonoBehaviour
 	{
 		//set former hero pip to fade and set new hero pip to hero
 		if (LockManager.instance.heroPip != -1)
-			pips[LockManager.instance.heroPip].Fade();
+			pips[LockManager.instance.heroPip].Unmark();
 			
 		LockManager.instance.heroPip = pipIndex;
 		pips[pipIndex].Mark();
