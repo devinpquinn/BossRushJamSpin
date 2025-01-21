@@ -26,10 +26,9 @@ public class Pip : MonoBehaviour
 	
 	public void Mark()
 	{
-		if(state == PipState.DangerEmpty || state == PipState.DangerMarked)
+		if(state == PipState.DangerEmpty)
 		{
 			Debug.Log("Hero is hit!");
-			return;
 		}
 		
 		StartCoroutine(SetHero());
