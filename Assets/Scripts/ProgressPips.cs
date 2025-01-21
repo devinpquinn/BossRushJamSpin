@@ -10,11 +10,16 @@ public class ProgressPips : MonoBehaviour
 	public void SetupPips(int numPips)
 	{
 		//spawn numPips pips as children of this object
+		Vector2 boxSize = GetComponent<GridLayoutGroup>().cellSize;
 		pips = new List<Pip>();
 		for (int i = 0; i < numPips; i++)
 		{
 			GameObject pip = Instantiate(pipPrefab, transform);
 			pips.Add(pip.gameObject.GetComponent<Pip>());
+			
+			//set size of pip box collider 2d to match grid cell size
+			BoxCollider2D boxCollider2D = pip.GetComponent<BoxCollider2D>();
+			boxCollider2D.size = boxSize;
 		}
 	}
 	
