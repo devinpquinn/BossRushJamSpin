@@ -31,13 +31,13 @@ public class Pip : MonoBehaviour
 		//set color to heroColor and scale local scale from 2 to 2.5 over 0.1 seconds
 		state = PipState.Hero;
 		image.color = heroColor;
-		rectTransform.localScale = Vector3.one * 1.5f;
+		rectTransform.localScale = Vector3.one * 5f;
 		
 		float t = 0;
 		while (t < 0.1f)
 		{
 			t += Time.deltaTime;
-			rectTransform.localScale = Vector3.one * Mathf.Lerp(1.5f, 3f, t / 0.1f);
+			rectTransform.localScale = Vector3.one * Mathf.Lerp(5f, 3f, t / 0.1f);
 			yield return null;
 		}
 		rectTransform.localScale = Vector3.one * 3f;
