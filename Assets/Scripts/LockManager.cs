@@ -104,7 +104,10 @@ public class LockManager : MonoBehaviour
 		damage += 0.1f;
 		
 		healthBarL.fillAmount = Mathf.Lerp(0, 1, damage / 0.5f);
+		healthBarL.transform.parent.localScale = Vector3.one * Mathf.Lerp(1, 1.5f, damage / 0.5f);
+		
 		healthBarR.fillAmount = Mathf.Lerp(0, 1, (damage - 0.5f) / 0.5f);
+		healthBarR.transform.parent.localScale = Vector3.one * Mathf.Lerp(1, 1.5f, (damage - 0.5f) / 0.5f);
 		
 		if(damage >= 1)
 		{
