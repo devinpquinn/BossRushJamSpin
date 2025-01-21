@@ -5,7 +5,8 @@ public class LockManager : MonoBehaviour
 {
 	public static LockManager instance;
 	public List<Digit> digits;
-	private int secretCode;
+	private int secretCode = -1;
+	private int minimumGuesses = 99;
 	private List<int> codesTried;
 	public ProgressPips progressPips;
 	public ProgressBar progressBar;
@@ -21,7 +22,7 @@ public class LockManager : MonoBehaviour
 	{
 		FillDigits();
 			
-		GenerateCode();
+		//GenerateCode();
 	}
 	
 	void FillDigits()
@@ -76,6 +77,11 @@ public class LockManager : MonoBehaviour
 			
 		//update progress bar
 		progressBar.UpdateBar((float)codesTried.Count / Mathf.Pow(10, digits.Count));
+		
+		if(secretCode == -1 && codesTried.Count >= minimumGuesses)
+		{
+			GenerateCode();
+		}
 		
 		if(code == secretCode)
 		{
