@@ -13,8 +13,7 @@ public class LockManager : MonoBehaviour
 	public ProgressPips progressPips;
 	public ProgressBar progressBar;
 	
-	public Image healthBarL;
-	public Image healthBarR;
+	public Image healthMeter;
 	private float damage = 0;
 	
 	[HideInInspector] public int heroPip = -1;
@@ -109,11 +108,8 @@ public class LockManager : MonoBehaviour
 	{
 		damage += 0.1f;
 		
-		healthBarL.fillAmount = Mathf.Lerp(0, 1, damage / 0.5f);
-		healthBarL.transform.parent.localScale = Vector3.one * Mathf.Lerp(1, 1.5f, damage / 0.5f);
-		
-		healthBarR.fillAmount = Mathf.Lerp(0, 1, (damage - 0.5f) / 0.5f);
-		healthBarR.transform.parent.localScale = Vector3.one * Mathf.Lerp(1, 1.5f, (damage - 0.5f) / 0.5f);
+		healthMeter.fillAmount = Mathf.Lerp(0, 1, damage / 1f);
+		healthMeter.transform.parent.localScale = Vector3.one * Mathf.Lerp(1, 1.5f, damage / 1f);
 		
 		if(damage > 1.01f)
 		{
