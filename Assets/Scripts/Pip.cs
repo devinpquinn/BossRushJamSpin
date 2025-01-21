@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class Pip : MonoBehaviour
 {
 	private Image image;
 	private RectTransform rectTransform;
 	public PipState state = PipState.Empty;
+	private Color originalColor;
 	public Color markedColor;
 	public Color heroColor;
 	public Color dangerColor;
@@ -14,6 +16,7 @@ public class Pip : MonoBehaviour
 	void Awake()
 	{
 		image = GetComponent<Image>();
+		originalColor = image.color;
 		rectTransform = GetComponent<RectTransform>();
 	}
 	
@@ -50,7 +53,7 @@ public class Pip : MonoBehaviour
 		if(state == PipState.DangerEmpty)
 		{
 			state = PipState.Empty;
-			image.color = Color.white;
+			image.color = originalColor;
 		}	
 		else if(state == PipState.DangerMarked)
 		{
@@ -91,6 +94,22 @@ public class Pip : MonoBehaviour
 			yield return null;
 		}
 		rectTransform.localScale = Vector3.one;
+	}
+	
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		if(other.CompareTag("Danger"))
+		{
+			SetDanger();
+		}
+	}
+	
+	private void OnTriggerExit2D(Collider2D other)
+	{
+		if(other.CompareTag("Danger"))
+		{
+			SetSafe();
+		}
 	}
 }
 
