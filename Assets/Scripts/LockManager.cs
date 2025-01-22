@@ -73,10 +73,7 @@ public class LockManager : MonoBehaviour
 		//if code has already been tried, return
 		if (codesTried.Contains(code))
 		{
-			if(code != heroPip)
-			{
-				progressPips.BumpPip(code);
-			}
+			progressPips.BumpPip(code);
 			return;
 		}
 			

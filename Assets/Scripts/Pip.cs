@@ -73,12 +73,19 @@ public class Pip : MonoBehaviour
 	
 	public void Bump()
 	{
-		StartCoroutine(FadeHeroToMarked());
+		if(transform.GetSiblingIndex() == LockManager.instance.heroPip)
+		{
+			StartCoroutine(BumpHero());
+		}
+		else
+		{
+			StartCoroutine(FadeHeroToMarked());
+		}
 	}
 	
 	private IEnumerator SetHero()
 	{
-		//set color to heroColor and scale local scale from 2 to 2.5 over 0.1 seconds
+		//set color to heroColor and scale local scale
 		state = PipState.Hero;
 		image.color = heroColor;
 		rectTransform.localScale = Vector3.one * 5f;
@@ -119,6 +126,27 @@ public class Pip : MonoBehaviour
 		}
 		
 		rectTransform.localScale = Vector3.one;
+		
+		boxCollider.enabled = true;
+		boxCollider.size = baseBoxColliderSize;
+	}
+	
+	private IEnumerator BumpHero()
+	{
+		rectTransform.localScale = Vector3.one * 4f;
+		
+		//disable box collider
+		boxCollider.enabled = false;
+		
+		float t = 0;
+		while (t < 0.5f)
+		{
+			t += Time.deltaTime;
+			rectTransform.localScale = Vector3.one * Mathf.Lerp(4f, 3f, t / 0.5f);
+			yield return null;
+		}
+		
+		rectTransform.localScale = Vector3.one * 3f;
 		
 		boxCollider.enabled = true;
 		boxCollider.size = baseBoxColliderSize;
