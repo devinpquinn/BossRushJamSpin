@@ -110,21 +110,18 @@ public class Pip : MonoBehaviour
 		state = PipState.Hero;
 		image.color = heroColor;
 		rectTransform.localScale = Vector3.one * 5f;
-		
-		//disable box collider
-		boxCollider.enabled = false;
+		boxCollider.size = baseBoxColliderSize / 5f;
 		
 		float t = 0;
 		while (t < 0.1f)
 		{
 			t += Time.deltaTime;
 			rectTransform.localScale = Vector3.one * Mathf.Lerp(5f, 3f, t / 0.1f);
+			boxCollider.size = Vector2.Lerp(baseBoxColliderSize / 5f, baseBoxColliderSize / 3f, t / 0.1f);
 			yield return null;
 		}
 		
 		rectTransform.localScale = Vector3.one * 3f;
-		
-		boxCollider.enabled = true;
 		boxCollider.size = baseBoxColliderSize / 3f;
 	}
 	
@@ -146,43 +143,37 @@ public class Pip : MonoBehaviour
 		}
 		
 		rectTransform.localScale = Vector3.one * 2.5f;
-		
-		//disable box collider
-		boxCollider.enabled = false;
+		boxCollider.size = baseBoxColliderSize * 2.5f;
 		
 		float t = 0;
 		while (t < 0.5f)
 		{
 			t += Time.deltaTime;
 			rectTransform.localScale = Vector3.one * Mathf.Lerp(2.5f, 1, t / 0.5f);
+			boxCollider.size = Vector2.Lerp(baseBoxColliderSize / 2.5f, baseBoxColliderSize, t / 0.5f);
 			yield return null;
 		}
 		
 		rectTransform.localScale = Vector3.one;
-		
-		boxCollider.enabled = true;
 		boxCollider.size = baseBoxColliderSize;
 	}
 	
 	private IEnumerator BumpHero()
 	{
 		rectTransform.localScale = Vector3.one * 4f;
-		
-		//disable box collider
-		boxCollider.enabled = false;
+		boxCollider.size = baseBoxColliderSize / 4f;
 		
 		float t = 0;
 		while (t < 0.5f)
 		{
 			t += Time.deltaTime;
 			rectTransform.localScale = Vector3.one * Mathf.Lerp(4f, 3f, t / 0.5f);
+			boxCollider.size = Vector2.Lerp(baseBoxColliderSize / 4f, baseBoxColliderSize / 3f, t / 0.5f);
 			yield return null;
 		}
 		
 		rectTransform.localScale = Vector3.one * 3f;
-		
-		boxCollider.enabled = true;
-		boxCollider.size = baseBoxColliderSize;
+		boxCollider.size = baseBoxColliderSize / 3f;
 	}
 	
 	private void OnTriggerEnter2D(Collider2D other)
@@ -195,11 +186,6 @@ public class Pip : MonoBehaviour
 	
 	private void OnTriggerExit2D(Collider2D other)
 	{
-		if(!boxCollider.enabled)
-		{
-			return;
-		}
-		
 		if(other.CompareTag("Danger"))
 		{
 			SetSafe();
