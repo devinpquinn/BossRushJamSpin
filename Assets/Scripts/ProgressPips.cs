@@ -36,6 +36,9 @@ public class ProgressPips : MonoBehaviour
 	public void BumpPip(int pipIndex)
 	{
 		pips[pipIndex].Bump();
+		
+		//set notch based on tens digit of pipIndex
+		notchManager.SetNotch((pipIndex % 100) / 10);
 	}
 	
 	public bool PipIsDanger(int pipIndex)
