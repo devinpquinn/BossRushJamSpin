@@ -14,7 +14,7 @@ public class Digit : MonoBehaviour
 	private Animator anim;
 	
 	private float lastScrollTime = 0f;
-	private const float scrollCooldown = 0.1f;
+	private const float scrollCooldown = 0.07f;
 	
 	private Coroutine shakeCoroutine;
 	private Vector3 shakeOffset = new Vector3(0, 5, 0);
