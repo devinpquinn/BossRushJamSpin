@@ -17,6 +17,7 @@ public class NotchManager : MonoBehaviour
 			foreach (Image image in activeNotch.images)
 			{
 				image.color = normalColor;
+				image.transform.localScale = Vector3.one;
 			}
 		}
 		
@@ -25,6 +26,7 @@ public class NotchManager : MonoBehaviour
 		foreach (Image image in activeNotch.images)
 		{
 			image.color = emphasisColor;
+			image.transform.localScale = new Vector3(1, 1.25f, 1);
 		}
 	}
 	
