@@ -52,6 +52,13 @@ public class Pip : MonoBehaviour
 	
 	public void SetDanger()
 	{
+		dangerCount++;
+		
+		if(dangerCount > 1 && state != PipState.Hero)
+		{
+			return;
+		}
+		
 		if(state == PipState.Empty)
 		{
 			state = PipState.DangerEmpty;
@@ -66,12 +73,16 @@ public class Pip : MonoBehaviour
 		{
 			LockManager.instance.Damage();
 		}	
-		
-		dangerCount++;
 	}
 	
 	public void SetSafe()
 	{
+		dangerCount--;
+		if(dangerCount < 0)
+		{
+			return;
+		}
+		
 		if(state == PipState.DangerEmpty)
 		{
 			state = PipState.Empty;
@@ -82,8 +93,6 @@ public class Pip : MonoBehaviour
 			state = PipState.Marked;
 			image.color = markedColor;
 		}
-		
-		dangerCount--;
 	}
 	
 	public void Bump()
