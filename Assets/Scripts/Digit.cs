@@ -121,7 +121,7 @@ public class Digit : MonoBehaviour
 		aboveText.transform.localEulerAngles = aboveTextBaseRotation + shakeRotation;
 		belowText.transform.localEulerAngles = belowTextBaseRotation - shakeRotation;
 		
-		yield return new WaitForSeconds(scrollCooldown * 0.95f);
+		yield return new WaitForSeconds(scrollCooldown);
 		
 		textParent.transform.localPosition = Vector3.zero;
 		
@@ -136,7 +136,7 @@ public class Digit : MonoBehaviour
 		aboveText.transform.localEulerAngles = aboveTextBaseRotation - shakeRotation;
 		belowText.transform.localEulerAngles = belowTextBaseRotation + shakeRotation;
 		
-		yield return new WaitForSeconds(scrollCooldown * 0.95f);
+		yield return new WaitForSeconds(scrollCooldown);
 		
 		textParent.transform.localPosition = Vector3.zero;
 		
