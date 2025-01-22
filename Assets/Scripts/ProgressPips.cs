@@ -7,6 +7,8 @@ public class ProgressPips : MonoBehaviour
 	private List<Pip> pips;
 	public GameObject pipPrefab;
 	
+	public Color altOriginalColor;
+	
 	public void SetupPips(int numPips)
 	{
 		//spawn numPips pips as children of this object
@@ -14,11 +16,13 @@ public class ProgressPips : MonoBehaviour
 		for (int i = 0; i < numPips; i++)
 		{
 			GameObject pip = Instantiate(pipPrefab, transform);
+			Pip thisPip = pip.GetComponent<Pip>();
 			if ((i / 10) % 2 == 1)
 			{
-				
+				thisPip.originalColor = altOriginalColor;
+				thisPip.GetComponent<Image>().color = altOriginalColor;
 			}
-			pips.Add(pip.gameObject.GetComponent<Pip>());
+			pips.Add(thisPip);
 		}
 	}
 	

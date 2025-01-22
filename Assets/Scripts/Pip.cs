@@ -11,7 +11,7 @@ public class Pip : MonoBehaviour
 	private Vector2 baseBoxColliderSize;
 	private RectTransform rectTransform;
 	public PipState state = PipState.Empty;
-	private Color originalColor;
+	[HideInInspector] public Color originalColor;
 	public Color markedColor;
 	public Color heroColor;
 	public Color dangerColor;
