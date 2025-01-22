@@ -67,8 +67,18 @@ public class Pip : MonoBehaviour
 	{
 		dangerCount++;
 		
-		if(dangerCount > 1 && state != PipState.Hero)
+		if(dangerCount > 1)
 		{
+			if(state == PipState.Hero)
+			{
+				LockManager.instance.Damage();
+			}
+			return;
+		}
+		
+		if(state == PipState.Hero)
+		{
+			LockManager.instance.Damage();
 			return;
 		}
 		
@@ -81,17 +91,18 @@ public class Pip : MonoBehaviour
 		{
 			state = PipState.DangerMarked;
 			image.color = dangerColor;
-		}
-		else if(state == PipState.Hero)
-		{
-			LockManager.instance.Damage();
 		}	
+		
+		if(resizeCoroutine != null)
+				StopCoroutine(resizeCoroutine);
+		
+		resizeCoroutine = StartCoroutine(LerpScale(1, 1.5f, 0.1f));
 	}
 	
 	public void SetSafe()
 	{
 		dangerCount--;
-		if(dangerCount < 0)
+		if(dangerCount > 0 || state == PipState.Hero)
 		{
 			return;
 		}
@@ -106,6 +117,11 @@ public class Pip : MonoBehaviour
 			state = PipState.Marked;
 			image.color = markedColor;
 		}
+		
+		if(resizeCoroutine != null)
+				StopCoroutine(resizeCoroutine);
+		
+		resizeCoroutine = StartCoroutine(LerpScale(1.5f, 1, 0.1f));
 	}
 	
 	public void Bump()
