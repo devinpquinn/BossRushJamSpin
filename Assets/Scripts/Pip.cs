@@ -96,7 +96,7 @@ public class Pip : MonoBehaviour
 		if(resizeCoroutine != null)
 				StopCoroutine(resizeCoroutine);
 		
-		resizeCoroutine = StartCoroutine(LerpScale(1, 1.5f, 0.1f));
+		resizeCoroutine = StartCoroutine(LerpScale(1, 1.75f, 0.1f));
 	}
 	
 	public void SetSafe()
@@ -121,7 +121,7 @@ public class Pip : MonoBehaviour
 		if(resizeCoroutine != null)
 				StopCoroutine(resizeCoroutine);
 		
-		resizeCoroutine = StartCoroutine(LerpScale(1.5f, 1, 0.1f));
+		resizeCoroutine = StartCoroutine(LerpScale(1.75f, 1, 0.1f));
 	}
 	
 	public void Bump()
