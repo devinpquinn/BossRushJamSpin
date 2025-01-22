@@ -16,6 +16,8 @@ public class Pip : MonoBehaviour
 	public Color heroColor;
 	public Color dangerColor;
 	
+	private int dangerCount = 0;
+	
 	private Coroutine resizeCoroutine;
 	
 	void Awake()
@@ -64,6 +66,8 @@ public class Pip : MonoBehaviour
 		{
 			LockManager.instance.Damage();
 		}	
+		
+		dangerCount++;
 	}
 	
 	public void SetSafe()
@@ -78,6 +82,8 @@ public class Pip : MonoBehaviour
 			state = PipState.Marked;
 			image.color = markedColor;
 		}
+		
+		dangerCount--;
 	}
 	
 	public void Bump()
@@ -127,8 +133,16 @@ public class Pip : MonoBehaviour
 		//set color to markedColor and scale local scale from 2 to 1 over 0.5 seconds
 		if(state == PipState.Hero)
 		{
-			state = PipState.Marked;
-			image.color = markedColor;
+			if(dangerCount < 1)
+			{
+				state = PipState.Marked;
+				image.color = markedColor;
+			}
+			else
+			{
+				state = PipState.DangerMarked;
+				image.color = dangerColor;
+			}
 		}
 		
 		rectTransform.localScale = Vector3.one * 2.5f;
