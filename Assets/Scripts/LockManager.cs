@@ -106,7 +106,7 @@ public class LockManager : MonoBehaviour
 		damage += 0.1f;
 		
 		healthMeter.fillAmount = Mathf.Lerp(0, 1, damage / 1f);
-		healthMeter.transform.parent.localScale = Vector3.one * Mathf.Lerp(1, 1.6f, damage / 1f);
+		healthMeter.transform.parent.localScale = Vector3.one * Mathf.Lerp(1, 2f, damage / 1f);
 		
 		if(damage > 1.01f)
 		{
