@@ -39,7 +39,9 @@ public class Pip : MonoBehaviour
 		if(resizeCoroutine != null)
 			StopCoroutine(resizeCoroutine);
 		
-		resizeCoroutine = StartCoroutine(SetHero());
+		state = PipState.Hero;
+		image.color = heroColor;
+		resizeCoroutine = StartCoroutine(LerpScale(5, 3, 0.1f));
 	}
 	
 	public void Unmark()
@@ -47,7 +49,18 @@ public class Pip : MonoBehaviour
 		if(resizeCoroutine != null)
 			StopCoroutine(resizeCoroutine);
 			
-		resizeCoroutine = StartCoroutine(FadeHeroToMarked());
+		
+		if(dangerCount < 1)
+		{
+			state = PipState.Marked;
+			image.color = markedColor;
+		}
+		else
+		{
+			state = PipState.DangerMarked;
+			image.color = dangerColor;
+		}
+		resizeCoroutine = StartCoroutine(LerpScale(2.5f, 1, 0.5f));
 	}
 	
 	public void SetDanger()
@@ -102,43 +115,13 @@ public class Pip : MonoBehaviour
 			if(resizeCoroutine != null)
 				StopCoroutine(resizeCoroutine);
 				
-			resizeCoroutine = StartCoroutine(BumpHero());
+			resizeCoroutine = StartCoroutine(LerpScale(4, 3, 0.5f));
 		}
 		else
 		{
 			if(resizeCoroutine != null)
 				StopCoroutine(resizeCoroutine);
 				
-			resizeCoroutine = StartCoroutine(FadeHeroToMarked());
-		}
-	}
-	
-	private IEnumerator SetHero()
-	{
-		//set color to heroColor and scale local scale
-		state = PipState.Hero;
-		image.color = heroColor;
-		rectTransform.localScale = Vector3.one * 5f;
-		boxCollider.size = baseBoxColliderSize / 5f;
-		
-		float t = 0;
-		while (t < 0.1f)
-		{
-			t += Time.deltaTime;
-			rectTransform.localScale = Vector3.one * Mathf.Lerp(5f, 3f, t / 0.1f);
-			boxCollider.size = Vector2.Lerp(baseBoxColliderSize / 5f, baseBoxColliderSize / 3f, t / 0.1f);
-			yield return null;
-		}
-		
-		rectTransform.localScale = Vector3.one * 3f;
-		boxCollider.size = baseBoxColliderSize / 3f;
-	}
-	
-	private IEnumerator FadeHeroToMarked()
-	{
-		//set color to markedColor and scale local scale from 2 to 1 over 0.5 seconds
-		if(state == PipState.Hero)
-		{
 			if(dangerCount < 1)
 			{
 				state = PipState.Marked;
@@ -149,40 +132,27 @@ public class Pip : MonoBehaviour
 				state = PipState.DangerMarked;
 				image.color = dangerColor;
 			}
+			resizeCoroutine = StartCoroutine(LerpScale(2.5f, 1, 0.5f));
 		}
-		
-		rectTransform.localScale = Vector3.one * 2.5f;
-		boxCollider.size = baseBoxColliderSize * 2.5f;
-		
-		float t = 0;
-		while (t < 0.5f)
-		{
-			t += Time.deltaTime;
-			rectTransform.localScale = Vector3.one * Mathf.Lerp(2.5f, 1, t / 0.5f);
-			boxCollider.size = Vector2.Lerp(baseBoxColliderSize / 2.5f, baseBoxColliderSize, t / 0.5f);
-			yield return null;
-		}
-		
-		rectTransform.localScale = Vector3.one;
-		boxCollider.size = baseBoxColliderSize;
 	}
 	
-	private IEnumerator BumpHero()
+	private IEnumerator LerpScale(float startScale, float endScale, float duration)
 	{
-		rectTransform.localScale = Vector3.one * 4f;
-		boxCollider.size = baseBoxColliderSize / 4f;
+		rectTransform.localScale = Vector3.one * startScale;
+		boxCollider.size = baseBoxColliderSize / startScale;
 		
 		float t = 0;
-		while (t < 0.5f)
+		while (t < duration)
 		{
 			t += Time.deltaTime;
-			rectTransform.localScale = Vector3.one * Mathf.Lerp(4f, 3f, t / 0.5f);
-			boxCollider.size = Vector2.Lerp(baseBoxColliderSize / 4f, baseBoxColliderSize / 3f, t / 0.5f);
+			rectTransform.localScale = Vector3.one * Mathf.Lerp(startScale, endScale, t / duration);
+			boxCollider.size = Vector2.Lerp(baseBoxColliderSize / startScale, baseBoxColliderSize / endScale, t / duration);
 			yield return null;
 		}
 		
-		rectTransform.localScale = Vector3.one * 3f;
-		boxCollider.size = baseBoxColliderSize / 3f;
+		
+		rectTransform.localScale = Vector3.one * endScale;
+		boxCollider.size = baseBoxColliderSize / endScale;
 	}
 	
 	private void OnTriggerEnter2D(Collider2D other)
