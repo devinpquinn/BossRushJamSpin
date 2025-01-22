@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 520143131}
   - component: {fileID: 520143130}
   m_Layer: 5
-  m_Name: NotchTop
+  m_Name: NotchBottom 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -521,7 +521,7 @@ GameObject:
   - component: {fileID: 591837901}
   - component: {fileID: 591837900}
   m_Layer: 5
-  m_Name: NotchTop
+  m_Name: NotchTop 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 598142203}
   - component: {fileID: 598142202}
   m_Layer: 5
-  m_Name: NotchTop
+  m_Name: NotchBottom 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -755,7 +755,7 @@ GameObject:
   - component: {fileID: 621944651}
   - component: {fileID: 621944650}
   m_Layer: 5
-  m_Name: NotchTop
+  m_Name: NotchBottom 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -994,7 +994,7 @@ GameObject:
   - component: {fileID: 924616814}
   - component: {fileID: 924616813}
   m_Layer: 5
-  m_Name: NotchTop
+  m_Name: NotchBottom 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1286,6 +1286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pipPrefab: {fileID: 7754206117204343965, guid: 049177bc7b2e13744a681cab3451a360, type: 3}
+  notchManager: {fileID: 1886855694}
 --- !u!1 &1062970674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,7 +1428,7 @@ GameObject:
   - component: {fileID: 1086293159}
   - component: {fileID: 1086293158}
   m_Layer: 5
-  m_Name: NotchTop
+  m_Name: NotchBottom 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1502,7 +1503,7 @@ GameObject:
   - component: {fileID: 1103177468}
   - component: {fileID: 1103177467}
   m_Layer: 5
-  m_Name: NotchTop
+  m_Name: NotchTop 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1686,7 +1687,7 @@ GameObject:
   - component: {fileID: 1195363618}
   - component: {fileID: 1195363617}
   m_Layer: 5
-  m_Name: NotchTop
+  m_Name: NotchBottom 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1761,7 +1762,7 @@ GameObject:
   - component: {fileID: 1199393830}
   - component: {fileID: 1199393829}
   m_Layer: 5
-  m_Name: NotchTop
+  m_Name: NotchBottom 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1836,7 +1837,7 @@ GameObject:
   - component: {fileID: 1284261685}
   - component: {fileID: 1284261684}
   m_Layer: 5
-  m_Name: NotchTop
+  m_Name: NotchBottom 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1911,7 +1912,7 @@ GameObject:
   - component: {fileID: 1386490652}
   - component: {fileID: 1386490651}
   m_Layer: 5
-  m_Name: NotchTop
+  m_Name: NotchTop 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1986,7 +1987,7 @@ GameObject:
   - component: {fileID: 1429785048}
   - component: {fileID: 1429785047}
   m_Layer: 5
-  m_Name: NotchTop
+  m_Name: NotchTop 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2172,7 +2173,7 @@ GameObject:
   - component: {fileID: 1551214919}
   - component: {fileID: 1551214918}
   m_Layer: 5
-  m_Name: NotchTop
+  m_Name: NotchTop 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2349,7 +2350,7 @@ GameObject:
   - component: {fileID: 1718295914}
   - component: {fileID: 1718295913}
   m_Layer: 5
-  m_Name: NotchTop
+  m_Name: NotchTop 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2468,7 +2469,7 @@ GameObject:
   - component: {fileID: 1822065611}
   - component: {fileID: 1822065610}
   m_Layer: 5
-  m_Name: NotchTop
+  m_Name: NotchTop 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2631,7 +2632,7 @@ GameObject:
   - component: {fileID: 1874331258}
   - component: {fileID: 1874331257}
   m_Layer: 5
-  m_Name: NotchTop
+  m_Name: NotchTop 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2703,6 +2704,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1886855693}
+  - component: {fileID: 1886855694}
   m_Layer: 5
   m_Name: Notches
   m_TagString: Untagged
@@ -2731,6 +2733,67 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 160}
   m_SizeDelta: {x: 1200, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1886855694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886855692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 312a3df3a2db712418a38a70681a7064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalColor: {r: 0.3882353, g: 0.36078432, b: 0.42745098, a: 1}
+  emphasisColor: {r: 1, g: 1, b: 0.81960785, a: 1}
+  notches:
+  - images:
+    - {fileID: 1551214918}
+    - {fileID: 1199393829}
+  - images:
+    - {fileID: 1551214918}
+    - {fileID: 1103177467}
+    - {fileID: 1199393829}
+    - {fileID: 598142202}
+  - images:
+    - {fileID: 1103177467}
+    - {fileID: 1386490651}
+    - {fileID: 598142202}
+    - {fileID: 520143130}
+  - images:
+    - {fileID: 1386490651}
+    - {fileID: 1822065610}
+    - {fileID: 520143130}
+    - {fileID: 1284261684}
+  - images:
+    - {fileID: 1822065610}
+    - {fileID: 2057103037}
+    - {fileID: 1284261684}
+    - {fileID: 1977756582}
+  - images:
+    - {fileID: 2057103037}
+    - {fileID: 1429785047}
+    - {fileID: 1977756582}
+    - {fileID: 1086293158}
+  - images:
+    - {fileID: 1429785047}
+    - {fileID: 1718295913}
+    - {fileID: 1086293158}
+    - {fileID: 924616813}
+  - images:
+    - {fileID: 1718295913}
+    - {fileID: 591837900}
+    - {fileID: 924616813}
+    - {fileID: 1195363617}
+  - images:
+    - {fileID: 591837900}
+    - {fileID: 1874331257}
+    - {fileID: 1195363617}
+    - {fileID: 621944650}
+  - images:
+    - {fileID: 1874331257}
+    - {fileID: 621944650}
 --- !u!1 &1912260964
 GameObject:
   m_ObjectHideFlags: 0
@@ -2995,7 +3058,7 @@ GameObject:
   - component: {fileID: 1977756583}
   - component: {fileID: 1977756582}
   m_Layer: 5
-  m_Name: NotchTop
+  m_Name: NotchBottom 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3242,7 +3305,7 @@ GameObject:
   - component: {fileID: 2057103038}
   - component: {fileID: 2057103037}
   m_Layer: 5
-  m_Name: NotchTop
+  m_Name: NotchTop 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
