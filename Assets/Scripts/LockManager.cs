@@ -71,7 +71,7 @@ public class LockManager : MonoBehaviour
 		int code = int.Parse(codeString);
 		
 		//if code has already been tried, return
-		if (codesTried.Contains(code))
+		if (codesTried.Contains(code) || progressPips.PipIsDanger(code))
 		{
 			progressPips.BumpPip(code);
 			return;

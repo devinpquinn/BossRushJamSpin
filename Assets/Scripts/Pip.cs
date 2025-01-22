@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using Unity.VisualScripting;
+using System.Security.Cryptography;
 
 public class Pip : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class Pip : MonoBehaviour
 	public Color markedColor;
 	public Color heroColor;
 	public Color dangerColor;
+	
+	private Coroutine resizeCoroutine;
 	
 	void Awake()
 	{
@@ -31,12 +34,18 @@ public class Pip : MonoBehaviour
 			LockManager.instance.Damage();
 		}
 		
-		StartCoroutine(SetHero());
+		if(resizeCoroutine != null)
+			StopCoroutine(resizeCoroutine);
+		
+		resizeCoroutine = StartCoroutine(SetHero());
 	}
 	
 	public void Unmark()
 	{
-		StartCoroutine(FadeHeroToMarked());
+		if(resizeCoroutine != null)
+			StopCoroutine(resizeCoroutine);
+			
+		resizeCoroutine = StartCoroutine(FadeHeroToMarked());
 	}
 	
 	public void SetDanger()
@@ -75,11 +84,17 @@ public class Pip : MonoBehaviour
 	{
 		if(transform.GetSiblingIndex() == LockManager.instance.heroPip)
 		{
-			StartCoroutine(BumpHero());
+			if(resizeCoroutine != null)
+				StopCoroutine(resizeCoroutine);
+				
+			resizeCoroutine = StartCoroutine(BumpHero());
 		}
 		else
 		{
-			StartCoroutine(FadeHeroToMarked());
+			if(resizeCoroutine != null)
+				StopCoroutine(resizeCoroutine);
+				
+			resizeCoroutine = StartCoroutine(FadeHeroToMarked());
 		}
 	}
 	
@@ -110,8 +125,12 @@ public class Pip : MonoBehaviour
 	private IEnumerator FadeHeroToMarked()
 	{
 		//set color to markedColor and scale local scale from 2 to 1 over 0.5 seconds
-		state = PipState.Marked;
-		image.color = markedColor;
+		if(state == PipState.Hero)
+		{
+			state = PipState.Marked;
+			image.color = markedColor;
+		}
+		
 		rectTransform.localScale = Vector3.one * 2.5f;
 		
 		//disable box collider

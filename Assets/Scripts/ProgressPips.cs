@@ -32,4 +32,9 @@ public class ProgressPips : MonoBehaviour
 	{
 		pips[pipIndex].Bump();
 	}
+	
+	public bool PipIsDanger(int pipIndex)
+	{
+		return pips[pipIndex].state == PipState.DangerEmpty || pips[pipIndex].state == PipState.DangerMarked;
+	}
 }
