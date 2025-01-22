@@ -13,8 +13,12 @@ public class ProgressPips : MonoBehaviour
 		pips = new List<Pip>();
 		for (int i = 0; i < numPips; i++)
 		{
-			GameObject pip = Instantiate(pipPrefab, transform);
-			pips.Add(pip.gameObject.GetComponent<Pip>());
+    		GameObject pip = Instantiate(pipPrefab, transform);
+    		if ((i / 10) % 2 == 1)
+    		{
+        		//mark these pips as different from the others somehow?
+    		}
+    		pips.Add(pip.gameObject.GetComponent<Pip>());
 		}
 	}
 	
