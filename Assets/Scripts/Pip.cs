@@ -181,6 +181,11 @@ public class Pip : MonoBehaviour
 	
 	private void OnTriggerExit2D(Collider2D other)
 	{
+		if(!boxCollider.enabled)
+		{
+			return;
+		}
+		
 		if(other.CompareTag("Danger"))
 		{
 			SetSafe();
