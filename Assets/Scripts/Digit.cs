@@ -57,7 +57,7 @@ public class Digit : MonoBehaviour
 	void OnMouseOver()
 	{
 		float scroll = Input.GetAxis("Mouse ScrollWheel");
-		if (Time.time - lastScrollTime >= scrollCooldown)
+		if (scroll != 0 && Time.time - lastScrollTime >= scrollCooldown)
 		{
 			if (scroll < 0)
 			{
@@ -116,12 +116,12 @@ public class Digit : MonoBehaviour
 	
 	private IEnumerator ShakeTextUp()
 	{
-		textParent.transform.localPosition += shakeOffset;
-
-		aboveText.transform.localEulerAngles += shakeRotation;
-		belowText.transform.localEulerAngles -= shakeRotation;
+		textParent.transform.localPosition = Vector3.zero + shakeOffset;
 		
-		yield return new WaitForSeconds(0.05f);
+		aboveText.transform.localEulerAngles = aboveTextBaseRotation + shakeRotation;
+		belowText.transform.localEulerAngles = belowTextBaseRotation - shakeRotation;
+		
+		yield return new WaitForSeconds(scrollCooldown * 0.95f);
 		
 		textParent.transform.localPosition = Vector3.zero;
 		
@@ -131,12 +131,12 @@ public class Digit : MonoBehaviour
 	
 	private IEnumerator ShakeTextDown()
 	{
-		textParent.transform.localPosition -= shakeOffset;
+		textParent.transform.localPosition = Vector3.zero - shakeOffset;
 		
-		aboveText.transform.localEulerAngles -= shakeRotation;
-		belowText.transform.localEulerAngles += shakeRotation;
+		aboveText.transform.localEulerAngles = aboveTextBaseRotation - shakeRotation;
+		belowText.transform.localEulerAngles = belowTextBaseRotation + shakeRotation;
 		
-		yield return new WaitForSeconds(0.05f);
+		yield return new WaitForSeconds(scrollCooldown * 0.95f);
 		
 		textParent.transform.localPosition = Vector3.zero;
 		
