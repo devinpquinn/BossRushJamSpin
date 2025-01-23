@@ -173,6 +173,11 @@ public class Pip : MonoBehaviour
 	
 	private void OnTriggerEnter2D(Collider2D other)
 	{
+		if(!LockManager.live)
+		{
+			return;
+		}
+		
 		if(other.CompareTag("Danger"))
 		{
 			SetDanger();
@@ -181,6 +186,11 @@ public class Pip : MonoBehaviour
 	
 	private void OnTriggerExit2D(Collider2D other)
 	{
+		if(!LockManager.live)
+		{
+			return;
+		}
+		
 		if(other.CompareTag("Danger"))
 		{
 			SetSafe();

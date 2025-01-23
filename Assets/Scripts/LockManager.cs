@@ -6,6 +6,7 @@ using UnityEngine.UI
 public class LockManager : MonoBehaviour
 {
 	public static LockManager instance;
+	public static bool live = false;
 	public List<Digit> digits;
 	private int secretCode = -1;
 	private int minimumGuesses = 99;
@@ -49,6 +50,9 @@ public class LockManager : MonoBehaviour
 		
 		//set up progress pips based on number of possible combinations of digits
 		progressPips.SetupPips((int)Mathf.Pow(10, digits.Count));
+		
+		//set live
+		live = true;
 	}
 	
 	void GenerateCode()
@@ -94,6 +98,7 @@ public class LockManager : MonoBehaviour
 		if(code == secretCode)
 		{
 			Debug.Log(code + " is correct!");
+			live = false;
 		}
 		else
 		{
@@ -111,6 +116,7 @@ public class LockManager : MonoBehaviour
 		if(damage > 1.01f)
 		{
 			Debug.Log("Hero destroyed!");
+			live = false;
 		}
 	}
 }

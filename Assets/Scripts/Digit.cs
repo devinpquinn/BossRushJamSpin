@@ -44,18 +44,33 @@ public class Digit : MonoBehaviour
 	//highlight digit when mouse is over it
 	void OnMouseEnter()
 	{
+		if(!LockManager.live)
+		{
+			return;
+		}
+			
 		anim.Play("Digit_Select");
 	}
 	
 	//unhighlight digit when mouse leaves it
 	void OnMouseExit()
 	{
+		if(!LockManager.live)
+		{
+			return;
+		}
+		
 		anim.Play("Digit_Deselect");
 	}
 	
 	//if player scrolls mouse wheel while hovering over digit, increase or decrease value
 	void OnMouseOver()
 	{
+		if(!LockManager.live)
+		{
+			return;
+		}
+			
 		float scroll = Input.GetAxis("Mouse ScrollWheel");
 		if (scroll != 0 && Time.time - lastScrollTime >= scrollCooldown)
 		{
