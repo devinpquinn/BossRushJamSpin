@@ -148,7 +148,8 @@ public class LockManager : MonoBehaviour
 		while (t < 1)
 		{
 			t += Time.deltaTime;
-			heroPipTransform.localScale = Vector3.one * Mathf.Lerp(1, 1000, t);
+			float easedT = t * t * (3f - 2f * t); // Quadratic ease-in-out
+			heroPipTransform.localScale = Vector3.one * Mathf.Lerp(1, 1000, easedT);
 			yield return null;
 		}
 		heroPipTransform.localScale = Vector3.one * 1000;
@@ -177,7 +178,8 @@ public class LockManager : MonoBehaviour
 		while (t < 1)
 		{
 			t += Time.deltaTime;
-			heroPipTransform.localScale = Vector3.one * Mathf.Lerp(1, 1000, t);
+			float easedT = t * t * (3f - 2f * t); // Quadratic ease-in-out
+			heroPipTransform.localScale = Vector3.one * Mathf.Lerp(1, 1000, easedT);
 			yield return null;
 		}
 		heroPipTransform.localScale = Vector3.one * 1000;
