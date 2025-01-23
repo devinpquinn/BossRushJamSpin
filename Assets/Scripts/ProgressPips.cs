@@ -15,6 +15,7 @@ public class ProgressPips : MonoBehaviour
 		for (int i = 0; i < numPips; i++)
 		{
 			GameObject pip = Instantiate(pipPrefab, transform);
+			pip.name = i.ToString();
 			Pip thisPip = pip.GetComponent<Pip>();
 			pips.Add(thisPip);
 		}
