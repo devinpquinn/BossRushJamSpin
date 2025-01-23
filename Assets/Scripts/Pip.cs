@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 
 public class Pip : MonoBehaviour
 {
-	private Image image;
+	[HideInInspector] public Image image;
 	private BoxCollider2D boxCollider;
 	private Vector2 baseBoxColliderSize;
 	private RectTransform rectTransform;
