@@ -14,6 +14,9 @@ public class LockManager : MonoBehaviour
 	public ProgressPips progressPips;
 	public ProgressBar progressBar;
 	
+	public GameObject victoryScreen;
+	public GameObject defeatScreen;
+	
 	public Image healthMeter;
 	private float damage = 1;
 	
@@ -141,7 +144,9 @@ public class LockManager : MonoBehaviour
 		progressPips.gameObject.GetComponent<GridLayoutGroup>().enabled = false;
 		Transform heroPipTransform = progressPips.pips[heroPip].transform;
 		heroPipTransform.parent = heroPipTransform.parent.parent;
-		heroPipTransform.SetAsLastSibling();
+		
+		//set to third-to-last sibling
+		heroPipTransform.SetSiblingIndex(heroPipTransform.parent.childCount - 3);
 		
 		//lerp hero pip to scale 1000 over 1 second
 		float t = 0;
@@ -154,7 +159,7 @@ public class LockManager : MonoBehaviour
 		}
 		heroPipTransform.localScale = Vector3.one * 1000;
 		
-		yield return new WaitForSeconds(1);
+		victoryScreen.SetActive(true);
 	}
 	
 	private IEnumerator Defeat()
@@ -168,7 +173,9 @@ public class LockManager : MonoBehaviour
 		progressPips.gameObject.GetComponent<GridLayoutGroup>().enabled = false;
 		Transform heroPipTransform = progressPips.pips[heroPip].transform;
 		heroPipTransform.parent = heroPipTransform.parent.parent;
-		heroPipTransform.SetAsLastSibling();
+		
+		//set to third-to-last sibling
+		heroPipTransform.SetSiblingIndex(heroPipTransform.parent.childCount - 3);
 		
 		//set hero pip color to danger color
 		progressPips.pips[heroPip].image.color = progressPips.pips[heroPip].dangerColor;
@@ -184,6 +191,6 @@ public class LockManager : MonoBehaviour
 		}
 		heroPipTransform.localScale = Vector3.one * 1000;
 		
-		yield return new WaitForSeconds(1);
+		defeatScreen.SetActive(true);
 	}
 }
