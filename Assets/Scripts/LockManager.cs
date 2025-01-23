@@ -137,7 +137,23 @@ public class LockManager : MonoBehaviour
 			digit.anim.Play("Digit_Victory");
 		}
 		
-		yield return null;
+		//setup hero pip transform
+		progressPips.gameObject.GetComponent<GridLayoutGroup>().enabled = false;
+		Transform heroPipTransform = progressPips.pips[heroPip].transform;
+		heroPipTransform.parent = heroPipTransform.parent.parent;
+		heroPipTransform.SetAsLastSibling();
+		
+		//lerp hero pip to scale 1000 over 1 second
+		float t = 0;
+		while (t < 1)
+		{
+			t += Time.deltaTime;
+			heroPipTransform.localScale = Vector3.one * Mathf.Lerp(1, 1000, t);
+			yield return null;
+		}
+		heroPipTransform.localScale = Vector3.one * 1000;
+		
+		yield return new WaitForSeconds(1);
 	}
 	
 	private IEnumerator Defeat()

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ProgressPips : MonoBehaviour
 {
-	private List<Pip> pips;
+	[HideInInspector] public List<Pip> pips;
 	public GameObject pipPrefab;
 	public NotchManager notchManager;
 	
