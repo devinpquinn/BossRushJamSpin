@@ -74,7 +74,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285357155
+    rgba: 4294967040
   m_fontColor: {r: 0.3882353, g: 0.36078432, b: 0.42745098, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -577,6 +577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockManager: {fileID: 0}
   value: 0
+  anim: {fileID: 0}
 --- !u!61 &8423891590024869630
 BoxCollider2D:
   m_ObjectHideFlags: 0

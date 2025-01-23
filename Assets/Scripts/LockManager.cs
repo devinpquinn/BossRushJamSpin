@@ -1,7 +1,7 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.UI
-;
+using UnityEngine.UI;
 
 public class LockManager : MonoBehaviour
 {
@@ -9,13 +9,13 @@ public class LockManager : MonoBehaviour
 	public static bool live = false;
 	public List<Digit> digits;
 	private int secretCode = -1;
-	private int minimumGuesses = 99;
+	private int minimumGuesses = 1;
 	private List<int> codesTried;
 	public ProgressPips progressPips;
 	public ProgressBar progressBar;
 	
 	public Image healthMeter;
-	private float damage = 0;
+	private float damage = 1;
 	
 	[HideInInspector] public int heroPip = -1;
 	
@@ -99,6 +99,8 @@ public class LockManager : MonoBehaviour
 		{
 			Debug.Log(code + " is correct!");
 			live = false;
+			
+			StartCoroutine(Victory());
 		}
 		else
 		{
@@ -108,6 +110,11 @@ public class LockManager : MonoBehaviour
 	
 	public void Damage()
 	{
+		if(!live)
+		{
+			return;
+		}
+		
 		damage += 0.1f;
 		
 		healthMeter.fillAmount = Mathf.Lerp(0, 1, damage / 1f);
@@ -117,6 +124,29 @@ public class LockManager : MonoBehaviour
 		{
 			Debug.Log("Hero destroyed!");
 			live = false;
+			
+			StartCoroutine(Defeat());
 		}
+	}
+	
+	private IEnumerator Victory()
+	{
+		//for each digit, disable arrows
+		foreach (Digit digit in digits)
+		{
+			digit.anim.Play("Digit_Victory");
+		}
+		
+		yield return null;
+	}
+	
+	private IEnumerator Defeat()
+	{
+		foreach (Digit digit in digits)
+		{
+			digit.anim.Play("Digit_Defeat");
+		}
+		
+		yield return null;
 	}
 }

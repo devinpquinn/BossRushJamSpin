@@ -11,7 +11,7 @@ public class Digit : MonoBehaviour
 	private TextMeshProUGUI aboveText;
 	private TextMeshProUGUI belowText;
 	[HideInInspector] public int value;
-	private Animator anim;
+	[HideInInspector] public Animator anim;
 	
 	private float lastScrollTime = 0f;
 	private const float scrollCooldown = 0.07f;
