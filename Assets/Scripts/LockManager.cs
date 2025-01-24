@@ -203,8 +203,10 @@ public class LockManager : MonoBehaviour
 		flash.SetActive(true);
 		
 		//shake
-		shake.duration  = 1;
+		shake.duration = 1;
 		shake.start = true;
+		
+		yield return new WaitForSeconds(0.1f);
 		
 		//lerp hero pip to scale 1000 over 1 second
 		float t = 0;
@@ -247,6 +249,8 @@ public class LockManager : MonoBehaviour
 		//shake
 		shake.duration = 1;
 		shake.start = true;
+		
+		yield return new WaitForSeconds(0.1f);
 		
 		//lerp hero pip to scale 1000 over 1 second
 		float t = 0;
