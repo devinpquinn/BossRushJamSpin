@@ -199,6 +199,7 @@ public class LockManager : MonoBehaviour
 		heroPipTransform.SetAsLastSibling();
 		
 		//flash
+		flash.GetComponent<Image>().color = heroColor;
 		flash.SetActive(true);
 		
 		//shake
@@ -239,6 +240,7 @@ public class LockManager : MonoBehaviour
 		progressPips.pips[heroPip].image.color = dangerColor;
 		
 		//flash
+		flash.GetComponent<Image>().color = dangerColor;
 		flash.SetActive(true);
 		
 		//shake
