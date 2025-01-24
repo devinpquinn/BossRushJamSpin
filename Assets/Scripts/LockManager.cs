@@ -20,6 +20,13 @@ public class LockManager : MonoBehaviour
 	public Image healthMeter;
 	private float damage = 0;
 	
+	private bool invulnerable = false;
+	public Color baseColor;
+	public Color markedColor;
+	public Color heroColor;
+	private Color trueHeroColor;
+	public Color dangerColor;
+	
 	[HideInInspector] public int heroPip = -1;
 	
 	void Awake()
@@ -135,6 +142,10 @@ public class LockManager : MonoBehaviour
 			
 			StartCoroutine(Defeat());
 		}
+		else
+		{
+			
+		}
 	}
 	
 	private IEnumerator Victory()
@@ -185,7 +196,7 @@ public class LockManager : MonoBehaviour
 		yield return new WaitForEndOfFrame();
 		
 		//set hero pip color to danger color
-		progressPips.pips[heroPip].image.color = progressPips.pips[heroPip].dangerColor;
+		progressPips.pips[heroPip].image.color = dangerColor;
 		
 		//lerp hero pip to scale 1000 over 1 second
 		float t = 0;

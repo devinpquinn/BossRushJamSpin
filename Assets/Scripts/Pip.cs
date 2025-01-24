@@ -11,11 +11,6 @@ public class Pip : MonoBehaviour
 	private Vector2 baseBoxColliderSize;
 	private RectTransform rectTransform;
 	public PipState state = PipState.Empty;
-	[HideInInspector] public Color originalColor;
-	public Color markedColor;
-	public Color heroColor;
-	public Color dangerColor;
-	
 	private int dangerCount = 0;
 	
 	private Coroutine resizeCoroutine;
@@ -25,7 +20,6 @@ public class Pip : MonoBehaviour
 		image = GetComponent<Image>();
 		boxCollider = GetComponent<BoxCollider2D>();
 		baseBoxColliderSize = boxCollider.size;
-		originalColor = image.color;
 		rectTransform = GetComponent<RectTransform>();
 	}
 	
@@ -43,7 +37,7 @@ public class Pip : MonoBehaviour
 		else
 		{
 			state = PipState.Hero;
-			image.color = heroColor;
+			image.color = LockManager.instance.heroColor;
 			resizeCoroutine = StartCoroutine(LerpScale(5, 3, 0.1f));
 		}
 	}
@@ -57,12 +51,12 @@ public class Pip : MonoBehaviour
 		if(dangerCount < 1)
 		{
 			state = PipState.Marked;
-			image.color = markedColor;
+			image.color = LockManager.instance.markedColor;
 		}
 		else
 		{
 			state = PipState.DangerMarked;
-			image.color = dangerColor;
+			image.color = LockManager.instance.dangerColor;
 		}
 		resizeCoroutine = StartCoroutine(LerpScale(2.5f, 1, 0.5f));
 	}
@@ -89,12 +83,12 @@ public class Pip : MonoBehaviour
 		if(state == PipState.Empty)
 		{
 			state = PipState.DangerEmpty;
-			image.color = dangerColor;
+			image.color = LockManager.instance.dangerColor;
 		}	
 		else if(state == PipState.Marked)
 		{
 			state = PipState.DangerMarked;
-			image.color = dangerColor;
+			image.color = LockManager.instance.dangerColor;
 		}	
 		
 		if(resizeCoroutine != null)
@@ -114,12 +108,12 @@ public class Pip : MonoBehaviour
 		if(state == PipState.DangerEmpty)
 		{
 			state = PipState.Empty;
-			image.color = originalColor;
+			image.color = LockManager.instance.baseColor;
 		}	
 		else if(state == PipState.DangerMarked)
 		{
 			state = PipState.Marked;
-			image.color = markedColor;
+			image.color = LockManager.instance.markedColor;
 		}
 		
 		if(resizeCoroutine != null)
@@ -145,12 +139,12 @@ public class Pip : MonoBehaviour
 			if(dangerCount < 1)
 			{
 				state = PipState.Marked;
-				image.color = markedColor;
+				image.color = LockManager.instance.markedColor;
 			}
 			else
 			{
 				state = PipState.DangerMarked;
-				image.color = dangerColor;
+				image.color = LockManager.instance.dangerColor;
 			}
 			resizeCoroutine = StartCoroutine(LerpScale(2.5f, 1, 0.5f));
 		}

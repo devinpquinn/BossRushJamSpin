@@ -1042,6 +1042,10 @@ MonoBehaviour:
   victoryScreen: {fileID: 7139885637620360940}
   defeatScreen: {fileID: 471888467}
   healthMeter: {fileID: 1974835926}
+  baseColor: {r: 0.3882353, g: 0.36078432, b: 0.42745098, a: 1}
+  markedColor: {r: 1, g: 1, b: 0.81960785, a: 1}
+  heroColor: {r: 0, g: 1, b: 1, a: 1}
+  dangerColor: {r: 1, g: 0, b: 0, a: 1}
   heroPip: -1
 --- !u!1 &698731012
 GameObject:
