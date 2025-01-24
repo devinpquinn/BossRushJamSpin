@@ -72,19 +72,19 @@ MonoBehaviour:
   useShaderLite: 0
   useVolumeComponent: 0
   injectionPoint: 550
-  preset: 2
+  preset: 6
   pixelResolutionX: 290
   pixelResolutionY: 210
-  screenBend: 0.05
+  screenBend: 1
   screenOverscan: 0
   vignetteSize: 5.7
   vignetteSmooth: 3.6
   vignetteRound: 33.3
   blur: 0.5
-  bleed: 1.1
-  smidge: 14
-  scanlinesStrength: 6.6
-  apertureStrength: 0.7
+  bleed: 0.01
+  smidge: 0
+  scanlinesStrength: 7
+  apertureStrength: 0
   shadowlines: 0
   shadowlinesSpeed: 0
   shadowlinesAlpha: 0
