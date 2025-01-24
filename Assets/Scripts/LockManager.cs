@@ -231,6 +231,9 @@ public class LockManager : MonoBehaviour
 		//set hero pip color to danger color
 		progressPips.pips[heroPip].image.color = dangerColor;
 		
+		//shake
+		shake.start = true;
+		
 		//lerp hero pip to scale 1000 over 1 second
 		float t = 0;
 		while (t < 1)
