@@ -9,7 +9,7 @@ public class LockManager : MonoBehaviour
 	public static bool live = false;
 	public List<Digit> digits;
 	private int secretCode = -1;
-	private int minimumGuesses = 1;
+	private int minimumGuesses = 99;
 	private List<int> codesTried;
 	public ProgressPips progressPips;
 	public ProgressBar progressBar;
@@ -18,7 +18,7 @@ public class LockManager : MonoBehaviour
 	public GameObject defeatScreen;
 	
 	public Image healthMeter;
-	private float damage = 1;
+	private float damage = 0;
 	
 	[HideInInspector] public int heroPip = -1;
 	
