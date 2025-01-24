@@ -70,6 +70,11 @@ public class LockManager : MonoBehaviour
 	
 	public void CheckCode()
 	{
+		if(!live)
+		{
+			return;
+		}
+		
 		string codeString = "";
 		foreach (Digit digit in digits)
 			codeString += digit.value.ToString();
