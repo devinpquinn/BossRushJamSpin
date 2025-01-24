@@ -206,7 +206,7 @@ public class LockManager : MonoBehaviour
 		shake.duration = 1;
 		shake.start = true;
 		
-		yield return new WaitForSeconds(0.1f);
+		yield return new WaitForSeconds(0.15f);
 		
 		//lerp hero pip to scale 1000 over 1 second
 		float t = 0;
@@ -250,7 +250,7 @@ public class LockManager : MonoBehaviour
 		shake.duration = 1;
 		shake.start = true;
 		
-		yield return new WaitForSeconds(0.1f);
+		yield return new WaitForSeconds(0.15f);
 		
 		//lerp hero pip to scale 1000 over 1 second
 		float t = 0;
