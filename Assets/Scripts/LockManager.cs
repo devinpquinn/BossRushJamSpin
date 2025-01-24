@@ -182,6 +182,8 @@ public class LockManager : MonoBehaviour
 		//set to third-to-last sibling
 		heroPipTransform.SetSiblingIndex(heroPipTransform.parent.childCount - 3);
 		
+		yield return new WaitForEndOfFrame();
+		
 		//set hero pip color to danger color
 		progressPips.pips[heroPip].image.color = progressPips.pips[heroPip].dangerColor;
 		
