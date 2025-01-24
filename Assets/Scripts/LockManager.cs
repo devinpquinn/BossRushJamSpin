@@ -9,16 +9,17 @@ public class LockManager : MonoBehaviour
 	public static bool live = false;
 	public List<Digit> digits;
 	private int secretCode = -1;
-	private int minimumGuesses = 99;
+	private int minimumGuesses = 1;
 	private List<int> codesTried;
 	public ProgressPips progressPips;
 	public ProgressBar progressBar;
 	
+	public GameObject flash;
 	public GameObject victoryScreen;
 	public GameObject defeatScreen;
 	
 	public Image healthMeter;
-	private float damage = 0;
+	private float damage = 1;
 	
 	public Shake shake;
 	
@@ -195,7 +196,10 @@ public class LockManager : MonoBehaviour
 		heroPipTransform.parent = heroPipTransform.parent.parent;
 		
 		//set to third-to-last sibling
-		heroPipTransform.SetSiblingIndex(heroPipTransform.parent.childCount - 3);
+		heroPipTransform.SetAsLastSibling();
+		
+		//flash
+		flash.SetActive(true);
 		
 		//shake
 		shake.start = true;
@@ -227,12 +231,15 @@ public class LockManager : MonoBehaviour
 		heroPipTransform.parent = heroPipTransform.parent.parent;
 		
 		//set to third-to-last sibling
-		heroPipTransform.SetSiblingIndex(heroPipTransform.parent.childCount - 3);
+		heroPipTransform.SetAsLastSibling();
 		
 		yield return new WaitForEndOfFrame();
 		
 		//set hero pip color to danger color
 		progressPips.pips[heroPip].image.color = dangerColor;
+		
+		//flash
+		flash.SetActive(true);
 		
 		//shake
 		shake.start = true;
