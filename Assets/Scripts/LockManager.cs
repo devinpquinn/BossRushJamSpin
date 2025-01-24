@@ -20,6 +20,8 @@ public class LockManager : MonoBehaviour
 	public Image healthMeter;
 	private float damage = 0;
 	
+	public Shake shake;
+	
 	private bool invulnerable = false;
 	public Color baseColor;
 	public Color markedColor;
@@ -154,6 +156,9 @@ public class LockManager : MonoBehaviour
 	{
 		//set hero invulnerable
 		invulnerable = true;
+		
+		//shake
+		shake.start = true;
 		
 		//every 0.1 seconds for 1 second, toggle hero pip color between trueHeroColor and white, also setting heroColor to white when hero pip is white
 		float t = 0;
