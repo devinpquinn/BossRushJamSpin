@@ -81,7 +81,7 @@ MonoBehaviour:
   vignetteSmooth: 3.6
   vignetteRound: 33.3
   blur: 0.5
-  bleed: 0.01
+  bleed: 0
   smidge: 0
   scanlinesStrength: 7
   apertureStrength: 0
