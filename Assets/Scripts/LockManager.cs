@@ -197,6 +197,9 @@ public class LockManager : MonoBehaviour
 		//set to third-to-last sibling
 		heroPipTransform.SetSiblingIndex(heroPipTransform.parent.childCount - 3);
 		
+		//shake
+		shake.start = true;
+		
 		//lerp hero pip to scale 1000 over 1 second
 		float t = 0;
 		while (t < 1)
