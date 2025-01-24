@@ -31,17 +31,21 @@ public class Pip : MonoBehaviour
 	
 	public void Mark()
 	{
-		if(state == PipState.DangerEmpty)
-		{
-			LockManager.instance.Damage();
-		}
-		
 		if(resizeCoroutine != null)
 			StopCoroutine(resizeCoroutine);
 		
-		state = PipState.Hero;
-		image.color = heroColor;
-		resizeCoroutine = StartCoroutine(LerpScale(5, 3, 0.1f));
+		if(state == PipState.DangerEmpty)
+		{
+			LockManager.instance.Damage();
+			
+			//damage coroutine
+		}
+		else
+		{
+			state = PipState.Hero;
+			image.color = heroColor;
+			resizeCoroutine = StartCoroutine(LerpScale(5, 3, 0.1f));
+		}
 	}
 	
 	public void Unmark()
