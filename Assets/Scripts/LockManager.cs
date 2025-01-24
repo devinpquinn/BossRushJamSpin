@@ -159,12 +159,13 @@ public class LockManager : MonoBehaviour
 	
 	private IEnumerator DamageMeter()
 	{
-		healthMeter.transform.parent.localScale = Vector3.one * Mathf.Lerp(1, 2f, damage / 1f);
+		healthMeter.transform.parent.localScale = Vector3.one * Mathf.Lerp(1, 2f, damage / 1f) * 1.1f;
 		healthMeter.fillAmount = 1;
 		healthMeter.color = Color.white;
 		
 		yield return new WaitForSeconds(0.5f);
 		
+		healthMeter.transform.parent.localScale = Vector3.one * Mathf.Lerp(1, 2f, damage / 1f);
 		healthMeter.fillAmount = Mathf.Lerp(0, 1, damage / 1f);
 		healthMeter.color = Color.red;
 	}
