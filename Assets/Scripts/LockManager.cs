@@ -19,7 +19,8 @@ public class LockManager : MonoBehaviour
 	public GameObject defeatScreen;
 	
 	public Image healthMeter;
-	private float damage = 1;
+	private float damage = 0;
+	private Coroutine damageCoroutine;
 	
 	public Shake shake;
 	
@@ -137,8 +138,11 @@ public class LockManager : MonoBehaviour
 		
 		damage += 0.1f;
 		
-		healthMeter.fillAmount = Mathf.Lerp(0, 1, damage / 1f);
-		healthMeter.transform.parent.localScale = Vector3.one * Mathf.Lerp(1, 2f, damage / 1f);
+		if(damageCoroutine != null)
+		{
+			StopCoroutine(damageCoroutine);
+		}
+		damageCoroutine = StartCoroutine(DamageMeter());
 		
 		if(damage > 1.01f)
 		{
@@ -151,6 +155,18 @@ public class LockManager : MonoBehaviour
 		{
 			StartCoroutine(BlinkHero());
 		}
+	}
+	
+	private IEnumerator DamageMeter()
+	{
+		healthMeter.transform.parent.localScale = Vector3.one * Mathf.Lerp(1, 2f, damage / 1f);
+		healthMeter.fillAmount = 1;
+		healthMeter.color = Color.white;
+		
+		yield return new WaitForSeconds(0.5f);
+		
+		healthMeter.fillAmount = Mathf.Lerp(0, 1, damage / 1f);
+		healthMeter.color = Color.red;
 	}
 	
 	private IEnumerator BlinkHero()
