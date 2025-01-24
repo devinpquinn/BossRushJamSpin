@@ -32,6 +32,8 @@ public class LockManager : MonoBehaviour
 	void Awake()
 	{
 		instance = this;
+		
+		trueHeroColor = heroColor;
 	}
 	
 	void Start()
@@ -125,7 +127,7 @@ public class LockManager : MonoBehaviour
 	
 	public void Damage()
 	{
-		if(!live)
+		if(!live || invulnerable)
 		{
 			return;
 		}
@@ -144,8 +146,34 @@ public class LockManager : MonoBehaviour
 		}
 		else
 		{
-			
+			StartCoroutine(BlinkHero());
 		}
+	}
+	
+	private IEnumerator BlinkHero()
+	{
+		//set hero invulnerable
+		invulnerable = true;
+		
+		//every 0.1 seconds for 1 second, toggle hero pip color between trueHeroColor and white, also setting heroColor to white when hero pip is white
+		float t = 0;
+		while (t < 1)
+		{
+			t += Time.deltaTime;
+			if (t % 0.1f < Time.deltaTime)
+			{
+				progressPips.pips[heroPip].image.color = progressPips.pips[heroPip].image.color == trueHeroColor ? Color.white : trueHeroColor;
+				heroColor = progressPips.pips[heroPip].image.color;
+			}
+			yield return null;
+		}
+		
+		//restore hero color
+		progressPips.pips[heroPip].image.color = trueHeroColor;
+		heroColor = trueHeroColor;
+		
+		//set hero vulnerable
+		invulnerable = false;
 	}
 	
 	private IEnumerator Victory()
