@@ -32,19 +32,26 @@ public class AttackHandler : MonoBehaviour
 				yield return ShowWarnings(true, new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
 				Instantiate(attacks[1], transform);
 				break;
+			case 2: //small bolt left to right
+				int randomRow = Random.Range(0, 10);
+				yield return ShowWarnings(false, new List<int> { randomRow });
+				GameObject thisAttack = Instantiate(attacks[2], transform);
+				//set first transform child of attack to same Y position as selected warning
+				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsLeft[randomRow].transform.position.y, thisAttack.transform.GetChild(0).position.z);
+				break;
 		}
 	}
 	
 	public IEnumerator AttackLoop()
 	{
-		yield return new WaitForSeconds(5);
+		yield return new WaitForSeconds(1);
 		
 		int attackType = 0;
 		while (true)
 		{
 			yield return Attack(attackType);
 			attackType = (attackType + 1) % attacks.Count;
-			yield return new WaitForSeconds(5);
+			yield return new WaitForSeconds(1);
 		}
 	}
 	
