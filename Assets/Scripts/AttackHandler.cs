@@ -70,6 +70,14 @@ public class AttackHandler : MonoBehaviour
 				//set first transform child of attack to same Y position as selected warning
 				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsRight[randomRow].transform.position.y, thisAttack.transform.GetChild(0).position.z);
 				break;
+			case 8: //strainer left to right
+				yield return ShowWarnings(false, new List<int> { 1, 2, 3, 6, 7, 8});
+				Instantiate(attacks[8], transform);
+				break;
+			case 9: //strainer right to left
+				yield return ShowWarnings(true, new List<int> { 1, 2, 3, 6, 7, 8 });
+				Instantiate(attacks[9], transform);
+				break;
 		}
 	}
 	
