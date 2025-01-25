@@ -1041,6 +1041,8 @@ MonoBehaviour:
   - {fileID: 9112827031345213976, guid: 8582b64716a87b14380656b5aacfa9ae, type: 3}
   - {fileID: 7703958712173984906, guid: 6dfff37e55b9a0d4db3e60fad59da106, type: 3}
   - {fileID: 3167507971772052052, guid: 3afce9f646fb5a14eb81c8051bf11afe, type: 3}
+  - {fileID: 4099552167508710763, guid: c1c64667868d37748b7bf141d7d727d8, type: 3}
+  - {fileID: 6064961606608207794, guid: 0375becd59ac24843810a721941ca9b8, type: 3}
   warningsLeft:
   - {fileID: 2117858898}
   - {fileID: 1209362152}
