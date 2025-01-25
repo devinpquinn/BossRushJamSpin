@@ -138,6 +138,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7781600088954728848}
+  - component: {fileID: 6584553976265588813}
   m_Layer: 0
   m_Name: Vertical Bar LR
   m_TagString: Untagged
@@ -161,3 +162,16 @@ Transform:
   - {fileID: 6858072998024247434}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6584553976265588813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7866132472365602666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb5ae0ac121584d4c9b80e5c3403bfed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDestroy: 30
