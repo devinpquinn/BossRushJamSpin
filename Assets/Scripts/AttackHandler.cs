@@ -8,6 +8,8 @@ public class AttackHandler : MonoBehaviour
 	public List<GameObject> warningsLeft;
 	public List<GameObject> warningsRight;
 	
+	public int TestAttack = -1;
+	
 	//coroutine that takes a bool for right/left and a list of ints, toggles the selected warnings on and waits for a second
 	public IEnumerator ShowWarnings(bool right, List<int> warnings)
 	{
@@ -70,8 +72,12 @@ public class AttackHandler : MonoBehaviour
 		}
 	}
 	
-	void Start()
+	void Update()
 	{
-		StartCoroutine(AttackLoop());
+		if (TestAttack != -1)
+		{
+			StartCoroutine(Attack(TestAttack));
+			TestAttack = -1;
+		}
 	}
 }

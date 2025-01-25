@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 1008001948469936245}
   - component: {fileID: 5933164453875774853}
   m_Layer: 0
-  m_Name: Danger_VertBar
+  m_Name: Danger_ThickBar
   m_TagString: Danger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 4388985293568846149}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.3, y: -3.34, z: 0}
+  m_LocalPosition: {x: 7.75, y: -3.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
