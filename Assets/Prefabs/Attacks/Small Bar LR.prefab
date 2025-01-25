@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 7781600088954728848}
   - component: {fileID: 6584553976265588813}
   m_Layer: 0
-  m_Name: Vertical Bar LR
+  m_Name: Small Bar LR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

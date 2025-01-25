@@ -26,11 +26,11 @@ public class AttackHandler : MonoBehaviour
 	{
 		switch (attackType)
 		{
-			case 0: //vertical bar left to right
+			case 0: //small bar left to right
 				yield return ShowWarnings(false, new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
 				Instantiate(attacks[0], transform);
 				break;
-			case 1: //vertical bar right to left
+			case 1: //small bar right to left
 				yield return ShowWarnings(true, new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
 				Instantiate(attacks[1], transform);
 				break;
@@ -38,45 +38,33 @@ public class AttackHandler : MonoBehaviour
 				int randomRow = Random.Range(0, 10);
 				yield return ShowWarnings(false, new List<int> { randomRow });
 				GameObject thisAttack = Instantiate(attacks[2], transform);
-				//set first transform child of attack to same Y position as selected warning
 				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsLeft[randomRow].transform.position.y, thisAttack.transform.GetChild(0).position.z);
 				break;
 			case 3: //small bolt right to left
 				randomRow = Random.Range(0, 10);
 				yield return ShowWarnings(true, new List<int> { randomRow });
 				thisAttack = Instantiate(attacks[3], transform);
-				//set first transform child of attack to same Y position as selected warning
 				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsRight[randomRow].transform.position.y, thisAttack.transform.GetChild(0).position.z);
 				break;
-			case 4: //thick vertical bar left to right
+			case 4: //large bar left to right
 				yield return ShowWarnings(false, new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
 				Instantiate(attacks[4], transform);
 				break;
-			case 5: //thick vertical bar right to left
+			case 5: //large bar right to left
 				yield return ShowWarnings(true, new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
 				Instantiate(attacks[5], transform);
 				break;
-			case 6: //thick bolt left to right
+			case 6: //large bolt left to right
 				randomRow = Random.Range(1, 9);
 				yield return ShowWarnings(false, new List<int> { randomRow, randomRow - 1 < 0 ? 0 : randomRow - 1, randomRow + 1 > 9 ? 9 : randomRow + 1 });
 				thisAttack = Instantiate(attacks[6], transform);
-				//set first transform child of attack to same Y position as selected warning
 				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsLeft[randomRow].transform.position.y, thisAttack.transform.GetChild(0).position.z);
 				break;
-			case 7: //thick bolt right to left
+			case 7: //large bolt right to left
 				randomRow = Random.Range(1, 9);
 				yield return ShowWarnings(true, new List<int> { randomRow, randomRow - 1 < 0 ? 0 : randomRow - 1, randomRow + 1 > 9 ? 9 : randomRow + 1 });
 				thisAttack = Instantiate(attacks[7], transform);
-				//set first transform child of attack to same Y position as selected warning
 				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsRight[randomRow].transform.position.y, thisAttack.transform.GetChild(0).position.z);
-				break;
-			case 8: //strainer left to right
-				yield return ShowWarnings(false, new List<int> { 1, 2, 3, 6, 7, 8});
-				Instantiate(attacks[8], transform);
-				break;
-			case 9: //strainer right to left
-				yield return ShowWarnings(true, new List<int> { 1, 2, 3, 6, 7, 8 });
-				Instantiate(attacks[9], transform);
 				break;
 		}
 	}

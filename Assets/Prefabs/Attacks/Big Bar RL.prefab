@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7442173229652919842}
   - component: {fileID: 2970519782656077982}
   m_Layer: 0
-  m_Name: Thick Bar RL
+  m_Name: Big Bar RL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

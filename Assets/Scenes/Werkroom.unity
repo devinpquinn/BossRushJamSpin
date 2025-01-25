@@ -1043,8 +1043,6 @@ MonoBehaviour:
   - {fileID: 3167507971772052052, guid: 3afce9f646fb5a14eb81c8051bf11afe, type: 3}
   - {fileID: 4099552167508710763, guid: c1c64667868d37748b7bf141d7d727d8, type: 3}
   - {fileID: 6064961606608207794, guid: 0375becd59ac24843810a721941ca9b8, type: 3}
-  - {fileID: 8193128381038817513, guid: 9fff38b5a1d92094e8842d255711eb93, type: 3}
-  - {fileID: 8193128381038817513, guid: 920e474e0fd71bf47b1ed81f34c16b8b, type: 3}
   warningsLeft:
   - {fileID: 2117858898}
   - {fileID: 1209362152}
