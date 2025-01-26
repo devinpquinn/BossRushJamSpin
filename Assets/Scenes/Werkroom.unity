@@ -1703,6 +1703,7 @@ MonoBehaviour:
   heroColor: {r: 0, g: 1, b: 1, a: 1}
   dangerColor: {r: 1, g: 0, b: 0, a: 1}
   heroPip: -1
+  fightManager: {fileID: 521127016}
 --- !u!1 &679398086 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7642068138157303093, guid: 1645cc86ba55cc5429b3d9266d4d6440, type: 3}

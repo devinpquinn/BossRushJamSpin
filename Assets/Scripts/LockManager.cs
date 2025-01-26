@@ -34,6 +34,16 @@ public class LockManager : MonoBehaviour
 	[HideInInspector] public int heroPip = -1;
 	
 	public FightManager fightManager;
+	private int Boss1_Phase2;
+	private int Boss1_Solved;
+	
+	private int Boss2_Phase2;
+	private int Boss2_Phase3;
+	private int Boss2_Solved;
+	
+	private int Boss3_Phase2;
+	private int Boss3_Phase3;
+	private int Boss3_Solved;
 	
 	private int boss = 1;
 	
@@ -112,9 +122,59 @@ public class LockManager : MonoBehaviour
 		progressPips.MarkPip(code);
 			
 		//update progress bar
-		progressBar.UpdateBar((float)codesTried.Count / 480);
+		int maxGuesses = Boss1_Solved;
+		if(boss == 2)
+		{
+			maxGuesses = Boss2_Solved;
+		}
+		else if(boss == 3)
+		{
+			maxGuesses = Boss3_Solved;
+		}
+		progressBar.UpdateBar((float)codesTried.Count / maxGuesses);
 		
 		//check thresholds
+		if(boss == 1)
+		{
+			if(codesTried.Count == Boss1_Phase2)
+			{
+				fightManager.SetPhase(2);
+			}
+			else if(codesTried.Count == Boss1_Solved)
+			{
+				StartCoroutine(Victory());
+			}
+		}
+		else if(boss == 2)
+		{
+			if(codesTried.Count == Boss2_Phase2)
+			{
+				fightManager.SetPhase(2);
+			}
+			else if(codesTried.Count == Boss2_Phase3)
+			{
+				fightManager.SetPhase(3);
+			}
+			else if(codesTried.Count == Boss2_Solved)
+			{
+				StartCoroutine(Victory());
+			}
+		}
+		else if(boss == 3)
+		{
+			if(codesTried.Count == Boss3_Phase2)
+			{
+				fightManager.SetPhase(2);
+			}
+			else if(codesTried.Count == Boss3_Phase3)
+			{
+				fightManager.SetPhase(3);
+			}
+			else if(codesTried.Count == Boss3_Solved)
+			{
+				StartCoroutine(Victory());
+			}
+		}
 	}
 	
 	public void Damage()
