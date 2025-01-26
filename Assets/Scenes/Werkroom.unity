@@ -999,6 +999,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 521127014}
+  - component: {fileID: 521127016}
   - component: {fileID: 521127015}
   m_Layer: 0
   m_Name: Attacks
@@ -1065,7 +1066,18 @@ MonoBehaviour:
   - {fileID: 1797557618}
   - {fileID: 951070387}
   - {fileID: 1029233696}
-  TestAttack: -1
+--- !u!114 &521127016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521127013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7191d200e7c8f6d42b611a163e239f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &591837898
 GameObject:
   m_ObjectHideFlags: 0
