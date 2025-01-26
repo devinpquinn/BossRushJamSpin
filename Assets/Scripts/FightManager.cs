@@ -42,6 +42,9 @@ public class FightManager : MonoBehaviour
 				case 8:
 					StartCoroutine(Boss3_Phase3());
 					break;
+				case 9:
+					StartCoroutine(Boss3_Phase4());
+					break;
 			}
 			Debug.Log("Starting phase " + testPhase);
 			testPhase = -1;
@@ -241,6 +244,51 @@ public class FightManager : MonoBehaviour
 		
 		while (true)
 		{
+			yield return StartCoroutine(attackHandler.Attack("StrainerLargeRight"));
+			yield return new WaitForSeconds(2.5f);
+			yield return StartCoroutine(attackHandler.Attack("StrainerLargeLeft"));
+			yield return new WaitForSeconds(5);
+		}
+	}
+	
+	IEnumerator Boss3_Phase4()
+	{
+		yield return new WaitForSeconds(2);
+		
+		//bring it all together
+		//in a loop, do the following:
+		//trigger a HorizLargeRight attack
+		//wait 2 seconds
+		//trigger a HorizLargeLeft attack
+		//wait 2 seconds
+		//trigger a HorizLargeBoth attack
+		//wait 7 seconds
+		//trigger a VertLargeRight attack
+		//wait 9 seconds
+		//trigger a VertLargeLeft attack
+		//wait 9 seconds
+		//trigger a VertLargeBoth attack
+		//wait 9 seconds
+		//trigger a StrainerLargeRight attack
+		//wait 3 seconds
+		//trigger a StrainerLargeLeft attack
+		//wait 3 seconds
+		//repeat after 5 seconds
+		
+		while (true)
+		{
+			yield return StartCoroutine(attackHandler.Attack("HorizLargeRight"));
+			yield return new WaitForSeconds(2);
+			yield return StartCoroutine(attackHandler.Attack("HorizLargeLeft"));
+			yield return new WaitForSeconds(2);
+			yield return StartCoroutine(attackHandler.Attack("HorizLargeBoth"));
+			yield return new WaitForSeconds(3);
+			yield return StartCoroutine(attackHandler.Attack("VertLargeRight"));
+			yield return new WaitForSeconds(5);
+			yield return StartCoroutine(attackHandler.Attack("VertLargeLeft"));
+			yield return new WaitForSeconds(5);
+			yield return StartCoroutine(attackHandler.Attack("VertLargeBoth"));
+			yield return new WaitForSeconds(5);
 			yield return StartCoroutine(attackHandler.Attack("StrainerLargeRight"));
 			yield return new WaitForSeconds(2.5f);
 			yield return StartCoroutine(attackHandler.Attack("StrainerLargeLeft"));
