@@ -73,10 +73,11 @@ public class LockManager : MonoBehaviour
 	
 	void GenerateCode()
 	{
-		//generate random code based on number of digits
-		secretCode = 0;
-		for (int i = 0; i < digits.Count; i++)
-			secretCode = secretCode * 10 + Random.Range(0, 10);
+		//generate random code from 0 to 999, inclusive, that is not in codesTried
+		do
+		{
+			secretCode = Random.Range(0, 1000);
+		} while (codesTried.Contains(secretCode));
 			
 		Debug.Log("secret code: " + secretCode);
 	}
