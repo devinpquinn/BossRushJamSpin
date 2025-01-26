@@ -87,13 +87,14 @@ public class AttackHandler : MonoBehaviour
 				Instantiate(attacks[5], transform);
 				break;
 			case "HorizLargeBoth": //large bolt both directions
-				int randomRowLeft = Random.Range(1, 9);
+				int randomRowLeft;
 				int randomRowRight;
 
 				do
 				{
+					randomRowLeft = Random.Range(1, 9);
 					randomRowRight = Random.Range(1, 9);
-				} while (Mathf.Abs(randomRowLeft - randomRowRight) < 3);
+				} while (Mathf.Abs(randomRowLeft - randomRowRight) < 4);
 
 				StartCoroutine(ShowWarnings(false, new List<int> { randomRowLeft, randomRowLeft - 1 < 0 ? 0 : randomRowLeft - 1, randomRowLeft + 1 > 9 ? 9 : randomRowLeft + 1 }));
 				StartCoroutine(ShowWarnings(true, new List<int> { randomRowRight, randomRowRight - 1 < 0 ? 0 : randomRowRight - 1, randomRowRight + 1 > 9 ? 9 : randomRowRight + 1 }));
