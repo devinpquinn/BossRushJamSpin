@@ -72,6 +72,13 @@ public class AttackHandler : MonoBehaviour
 				thisAttack = Instantiate(attacks[7], transform);
 				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsRight[randomRow].transform.position.y, thisAttack.transform.GetChild(0).position.z);
 				break;
+			case "VertSmallBoth": //small bar both directions
+				StartCoroutine(ShowWarnings(false, new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }));
+				StartCoroutine(ShowWarnings(true, new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }));
+				yield return new WaitForSeconds(1);
+				Instantiate(attacks[0], transform);
+				Instantiate(attacks[1], transform);
+				break;
 		}
 	}
 }
