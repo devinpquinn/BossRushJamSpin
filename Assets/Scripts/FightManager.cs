@@ -242,9 +242,9 @@ public class FightManager : MonoBehaviour
 		while (true)
 		{
 			yield return StartCoroutine(attackHandler.Attack("StrainerLargeRight"));
-			yield return new WaitForSeconds(3);
+			yield return new WaitForSeconds(2.5f);
 			yield return StartCoroutine(attackHandler.Attack("StrainerLargeLeft"));
-			yield return new WaitForSeconds(6);
+			yield return new WaitForSeconds(5);
 		}
 	}
 }

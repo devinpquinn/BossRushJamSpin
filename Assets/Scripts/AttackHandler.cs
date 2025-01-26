@@ -110,16 +110,14 @@ public class AttackHandler : MonoBehaviour
 				thisAttack = Instantiate(attacks[7], transform);
 				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsRight[7].transform.position.y, thisAttack.transform.GetChild(0).position.z);
 				break;
-			case "StrainerLargeLeft": //HorizSmallLeft at indices 0, 4, 5, and 9
+			case "StrainerLargeLeft": //HorizSmallLeft at indices 0, 4, 5, and 9. For each instantiated object, find its animator and set animator speed to 1.5
 				yield return ShowWarnings(false, new List<int> { 0, 4, 5, 9 });
-				thisAttack = Instantiate(attacks[2], transform);
-				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsLeft[0].transform.position.y, thisAttack.transform.GetChild(0).position.z);
-				thisAttack = Instantiate(attacks[2], transform);
-				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsLeft[4].transform.position.y, thisAttack.transform.GetChild(0).position.z);
-				thisAttack = Instantiate(attacks[2], transform);
-				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsLeft[5].transform.position.y, thisAttack.transform.GetChild(0).position.z);
-				thisAttack = Instantiate(attacks[2], transform);
-				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsLeft[9].transform.position.y, thisAttack.transform.GetChild(0).position.z);
+				foreach (int i in new List<int> { 0, 4, 5, 9 })
+				{
+					thisAttack = Instantiate(attacks[2], transform);
+					thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsLeft[i].transform.position.y, thisAttack.transform.GetChild(0).position.z);
+					thisAttack.GetComponentInChildren<Animator>().speed = 1.5f;
+				}
 				break;
 		}
 	}
