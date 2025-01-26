@@ -103,6 +103,24 @@ public class AttackHandler : MonoBehaviour
 				thisAttack = Instantiate(attacks[7], transform);
 				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsRight[randomRowRight].transform.position.y, thisAttack.transform.GetChild(0).position.z);
 				break;
+			case "StrainerLargeRight": //2 HorizLargeRight simultaneously at indices 2 and 7
+				yield return ShowWarnings(true, new List<int> { 1, 2, 3, 6, 7, 8 });
+				thisAttack = Instantiate(attacks[7], transform);
+				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsRight[2].transform.position.y, thisAttack.transform.GetChild(0).position.z);
+				thisAttack = Instantiate(attacks[7], transform);
+				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsRight[7].transform.position.y, thisAttack.transform.GetChild(0).position.z);
+				break;
+			case "StrainerLargeLeft": //HorizSmallLeft at indices 0, 4, 5, and 9
+				yield return ShowWarnings(false, new List<int> { 0, 4, 5, 9 });
+				thisAttack = Instantiate(attacks[2], transform);
+				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsLeft[0].transform.position.y, thisAttack.transform.GetChild(0).position.z);
+				thisAttack = Instantiate(attacks[2], transform);
+				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsLeft[4].transform.position.y, thisAttack.transform.GetChild(0).position.z);
+				thisAttack = Instantiate(attacks[2], transform);
+				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsLeft[5].transform.position.y, thisAttack.transform.GetChild(0).position.z);
+				thisAttack = Instantiate(attacks[2], transform);
+				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsLeft[9].transform.position.y, thisAttack.transform.GetChild(0).position.z);
+				break;
 		}
 	}
 }

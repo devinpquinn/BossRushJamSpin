@@ -39,6 +39,9 @@ public class FightManager : MonoBehaviour
 				case 7:
 					StartCoroutine(Boss3_Phase2());
 					break;
+				case 8:
+					StartCoroutine(Boss3_Phase3());
+					break;
 			}
 			Debug.Log("Starting phase " + testPhase);
 			testPhase = -1;
@@ -223,6 +226,25 @@ public class FightManager : MonoBehaviour
 			yield return new WaitForSeconds(9);
 			yield return StartCoroutine(attackHandler.Attack("VertLargeBoth"));
 			yield return new WaitForSeconds(9);
+		}
+	}
+	
+	IEnumerator Boss3_Phase3()
+	{
+		yield return new WaitForSeconds(2);
+		
+		//in a loop, do the following:
+		//trigger a StrainerLargeRight attack
+		//wait 3 seconds
+		//trigger a StrainerLargeLeft attack
+		//wait 3 seconds
+		
+		while (true)
+		{
+			yield return StartCoroutine(attackHandler.Attack("StrainerLargeRight"));
+			yield return new WaitForSeconds(3);
+			yield return StartCoroutine(attackHandler.Attack("StrainerLargeLeft"));
+			yield return new WaitForSeconds(6);
 		}
 	}
 }
