@@ -35,6 +35,8 @@ public class LockManager : MonoBehaviour
 	
 	public FightManager fightManager;
 	
+	private int boss = 1;
+	
 	void Awake()
 	{
 		instance = this;
@@ -45,8 +47,6 @@ public class LockManager : MonoBehaviour
 	void Start()
 	{
 		FillDigits();
-			
-		//GenerateCode();
 	}
 	
 	void FillDigits()
@@ -112,24 +112,9 @@ public class LockManager : MonoBehaviour
 		progressPips.MarkPip(code);
 			
 		//update progress bar
-		progressBar.UpdateBar((float)codesTried.Count / Mathf.Pow(10, digits.Count));
+		progressBar.UpdateBar((float)codesTried.Count / 480);
 		
-		if(secretCode == -1 && codesTried.Count >= minimumGuesses)
-		{
-			GenerateCode();
-		}
-		
-		if(code == secretCode)
-		{
-			Debug.Log(code + " is correct!");
-			live = false;
-			
-			StartCoroutine(Victory());
-		}
-		else
-		{
-			//Debug.Log(code + " is incorrect.");
-		}
+		//check thresholds
 	}
 	
 	public void Damage()
