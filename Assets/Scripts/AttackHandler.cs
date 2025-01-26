@@ -56,7 +56,7 @@ public class AttackHandler : MonoBehaviour
 				yield return ShowWarnings(false, new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
 				Instantiate(attacks[4], transform);
 				break;
-			case "VertBarRight": //large bar right to left
+			case "VertLargeRight": //large bar right to left
 				yield return ShowWarnings(true, new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
 				Instantiate(attacks[5], transform);
 				break;
@@ -78,6 +78,30 @@ public class AttackHandler : MonoBehaviour
 				yield return new WaitForSeconds(1);
 				Instantiate(attacks[0], transform);
 				Instantiate(attacks[1], transform);
+				break;
+			case "VertLargeBoth": //large bar both directions
+				StartCoroutine(ShowWarnings(false, new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }));
+				StartCoroutine(ShowWarnings(true, new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }));
+				yield return new WaitForSeconds(1);
+				Instantiate(attacks[4], transform);
+				Instantiate(attacks[5], transform);
+				break;
+			case "HorizLargeBoth": //large bolt both directions
+				int randomRowLeft = Random.Range(1, 9);
+				int randomRowRight;
+
+				do
+				{
+					randomRowRight = Random.Range(1, 9);
+				} while (Mathf.Abs(randomRowLeft - randomRowRight) < 3);
+
+				StartCoroutine(ShowWarnings(false, new List<int> { randomRowLeft, randomRowLeft - 1 < 0 ? 0 : randomRowLeft - 1, randomRowLeft + 1 > 9 ? 9 : randomRowLeft + 1 }));
+				StartCoroutine(ShowWarnings(true, new List<int> { randomRowRight, randomRowRight - 1 < 0 ? 0 : randomRowRight - 1, randomRowRight + 1 > 9 ? 9 : randomRowRight + 1 }));
+				yield return new WaitForSeconds(1);
+				thisAttack = Instantiate(attacks[6], transform);
+				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsLeft[randomRowLeft].transform.position.y, thisAttack.transform.GetChild(0).position.z);
+				thisAttack = Instantiate(attacks[7], transform);
+				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsRight[randomRowRight].transform.position.y, thisAttack.transform.GetChild(0).position.z);
 				break;
 		}
 	}

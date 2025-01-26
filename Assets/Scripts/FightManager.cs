@@ -33,6 +33,12 @@ public class FightManager : MonoBehaviour
 				case 5:
 					StartCoroutine(Boss2_Phase3());
 					break;
+				case 6:
+					StartCoroutine(Boss3_Phase1());
+					break;
+				case 7:
+					StartCoroutine(Boss3_Phase2());
+					break;
 			}
 			Debug.Log("Starting phase " + testPhase);
 			testPhase = -1;
@@ -41,7 +47,7 @@ public class FightManager : MonoBehaviour
 	
 	IEnumerator Boss1_Phase1()
 	{
-		yield return new WaitForSeconds(10f);
+		yield return new WaitForSeconds(10);
 		
 		//alternate HorizSmallRight and HorizSmallLeft attacks every 5 seconds
 		while (true)
@@ -55,7 +61,7 @@ public class FightManager : MonoBehaviour
 	
 	IEnumerator Boss1_Phase2()
 	{
-		yield return new WaitForSeconds(5f);
+		yield return new WaitForSeconds(5);
 		
 		//alternate VertSmallRight and VertSmallLeft attacks every 35 seconds
 		while (true)
@@ -69,7 +75,7 @@ public class FightManager : MonoBehaviour
 	
 	IEnumerator Boss2_Phase1()
 	{
-		yield return new WaitForSeconds(5f);
+		yield return new WaitForSeconds(5);
 		
 		//in a loop, do the following:
 		//trigger 3 HorizSmallRight attacks in a burst, each 1 second apart
@@ -110,7 +116,7 @@ public class FightManager : MonoBehaviour
 	
 	IEnumerator Boss2_Phase2()
 	{
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(2);
 		
 		//in a loop, do the following:
 		//trigger 4 HorizSmallRight attacks in a burst, each 1 second apart
@@ -145,7 +151,7 @@ public class FightManager : MonoBehaviour
 	
 	IEnumerator Boss2_Phase3()
 	{
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(2);
 		
 		//in a loop, do the following:
 		//trigger 5 HorizSmallRight attacks in a burst, each 1 second apart
@@ -171,6 +177,52 @@ public class FightManager : MonoBehaviour
 			yield return new WaitForSeconds(1);
 			yield return StartCoroutine(attackHandler.Attack("VertSmallBoth"));
 			yield return new WaitForSeconds(3);
+		}
+	}
+	
+	IEnumerator Boss3_Phase1()
+	{
+		yield return new WaitForSeconds(5);
+		
+		//in a loop, do the following:
+		//trigger a HorizLargeRight attack
+		//wait 2 seconds
+		//trigger a HorizLargeLeft attack
+		//wait 2 seconds
+		//trigger a HorizLargeBoth attack
+		//repeat after 7 seconds
+		
+		while (true)
+		{
+			yield return StartCoroutine(attackHandler.Attack("HorizLargeRight"));
+			yield return new WaitForSeconds(2);
+			yield return StartCoroutine(attackHandler.Attack("HorizLargeLeft"));
+			yield return new WaitForSeconds(2);
+			yield return StartCoroutine(attackHandler.Attack("HorizLargeBoth"));
+			yield return new WaitForSeconds(7);
+		}
+	}
+	
+	IEnumerator Boss3_Phase2()
+	{
+		yield return new WaitForSeconds(2);
+		
+		//in a loop, do the following:
+		//trigger a VertLargeRight attack
+		//wait 9 seconds
+		//trigger a VertLargeLeft attack
+		//wait 9 seconds
+		//trigger a VertLargeBoth attack
+		//wait 9 seconds and repeat
+		
+		while (true)
+		{
+			yield return StartCoroutine(attackHandler.Attack("VertLargeRight"));
+			yield return new WaitForSeconds(9);
+			yield return StartCoroutine(attackHandler.Attack("VertLargeLeft"));
+			yield return new WaitForSeconds(9);
+			yield return StartCoroutine(attackHandler.Attack("VertLargeBoth"));
+			yield return new WaitForSeconds(9);
 		}
 	}
 }
