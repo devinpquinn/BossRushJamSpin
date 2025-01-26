@@ -3,7 +3,7 @@ using System.Collections;
 
 public class FightManager : MonoBehaviour
 {
-	public int testPhase = -1;
+	private int boss = 1;
 	private AttackHandler attackHandler;
 	
 	void Start()
@@ -11,43 +11,68 @@ public class FightManager : MonoBehaviour
 		attackHandler = GetComponent<AttackHandler>();
 	}
 	
-	void Update()
+	public void StartFight(int boss)
 	{
-		if(testPhase != -1)
+		switch (boss)
 		{
-			StopAllCoroutines();
-			switch(testPhase)
-			{
-				case 1:
-					StartCoroutine(Boss1_Phase1());
-					break;
-				case 2:
-					StartCoroutine(Boss1_Phase2());
-					break;
-				case 3:
-					StartCoroutine(Boss2_Phase1());
-					break;
-				case 4:
-					StartCoroutine(Boss2_Phase2());
-					break;
-				case 5:
-					StartCoroutine(Boss2_Phase3());
-					break;
-				case 6:
-					StartCoroutine(Boss3_Phase1());
-					break;
-				case 7:
-					StartCoroutine(Boss3_Phase2());
-					break;
-				case 8:
-					StartCoroutine(Boss3_Phase3());
-					break;
-				case 9:
-					StartCoroutine(Boss3_Phase4());
-					break;
-			}
-			Debug.Log("Starting phase " + testPhase);
-			testPhase = -1;
+			case 1:
+				StartCoroutine(Boss1_Phase1());
+				break;
+			case 2:
+				StartCoroutine(Boss2_Phase1());
+				break;
+			case 3:
+				StartCoroutine(Boss3_Phase1());
+				break;
+		}
+	}
+	
+	public void SetPhase(int phase)
+	{
+		switch (boss)
+		{
+			case 1:
+				switch (phase)
+				{
+					case 1:
+						StartCoroutine(Boss1_Phase1());
+						break;
+					case 2:
+						StartCoroutine(Boss1_Phase2());
+						break;
+				}
+				break;
+			case 2:
+				switch (phase)
+				{
+					case 1:
+						StartCoroutine(Boss2_Phase1());
+						break;
+					case 2:
+						StartCoroutine(Boss2_Phase2());
+						break;
+					case 3:
+						StartCoroutine(Boss2_Phase3());
+						break;
+				}
+				break;
+			case 3:
+				switch (phase)
+				{
+					case 1:
+						StartCoroutine(Boss3_Phase1());
+						break;
+					case 2:
+						StartCoroutine(Boss3_Phase2());
+						break;
+					case 3:
+						StartCoroutine(Boss3_Phase3());
+						break;
+					case 4:
+						StartCoroutine(Boss3_Phase4());
+						break;
+				}
+				break;
 		}
 	}
 	

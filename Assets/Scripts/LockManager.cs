@@ -33,6 +33,8 @@ public class LockManager : MonoBehaviour
 	
 	[HideInInspector] public int heroPip = -1;
 	
+	public FightManager fightManager;
+	
 	void Awake()
 	{
 		instance = this;
