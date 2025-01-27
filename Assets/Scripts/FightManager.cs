@@ -29,6 +29,7 @@ public class FightManager : MonoBehaviour
 	
 	public void SetPhase(int phase)
 	{
+		StopAllCoroutines();
 		switch (boss)
 		{
 			case 1:

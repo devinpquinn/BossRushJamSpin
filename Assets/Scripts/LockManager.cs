@@ -34,8 +34,8 @@ public class LockManager : MonoBehaviour
 	[HideInInspector] public int heroPip = -1;
 	
 	public FightManager fightManager;
-	private int Boss1_Phase2 = 150;
-	private int Boss1_Solved = 300;
+	private int Boss1_Phase2 = 250;
+	private int Boss1_Solved = 500;
 	
 	private int Boss2_Phase2;
 	private int Boss2_Phase3;
