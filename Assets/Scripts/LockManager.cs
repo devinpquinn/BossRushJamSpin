@@ -263,6 +263,9 @@ public class LockManager : MonoBehaviour
 	
 	private IEnumerator Victory()
 	{
+		StopAllCoroutines();
+		invulnerable = true;
+		
 		//for each digit, disable arrows
 		foreach (Digit digit in digits)
 		{
