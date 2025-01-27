@@ -11,9 +11,10 @@ public class FightManager : MonoBehaviour
 		attackHandler = GetComponent<AttackHandler>();
 	}
 	
-	public void StartFight(int boss)
+	public void StartFight(int whichBoss)
 	{
-		switch (boss)
+		boss = whichBoss;
+		switch (whichBoss)
 		{
 			case 1:
 				StartCoroutine(Boss1_Phase1());

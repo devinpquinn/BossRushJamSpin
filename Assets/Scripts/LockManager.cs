@@ -9,7 +9,6 @@ public class LockManager : MonoBehaviour
 	public static bool live = false;
 	public List<Digit> digits;
 	private int secretCode = -1;
-	private int minimumGuesses = 1;
 	private List<int> codesTried;
 	public ProgressPips progressPips;
 	public ProgressBar progressBar;
@@ -34,16 +33,17 @@ public class LockManager : MonoBehaviour
 	[HideInInspector] public int heroPip = -1;
 	
 	public FightManager fightManager;
-	private int Boss1_Phase2 = 250;
-	private int Boss1_Solved = 500;
+	private int Boss1_Phase2 = 225;
+	private int Boss1_Solved = 450;
 	
-	private int Boss2_Phase2;
-	private int Boss2_Phase3;
-	private int Boss2_Solved;
+	private int Boss2_Phase2 = 200;
+	private int Boss2_Phase3 = 400;
+	private int Boss2_Solved = 600;
 	
-	private int Boss3_Phase2;
-	private int Boss3_Phase3;
-	private int Boss3_Solved;
+	private int Boss3_Phase2 = 200;
+	private int Boss3_Phase3 = 400;
+	private int Boss3_Phase4 = 600;
+	private int Boss3_Solved = 800;
 	
 	private int boss = 1;
 	
@@ -139,7 +139,7 @@ public class LockManager : MonoBehaviour
 		{
 			maxGuesses = Boss3_Solved;
 		}
-		progressBar.UpdateBar((float)codesTried.Count / maxGuesses);
+		progressBar.UpdateBar(Mathf.Clamp((float)codesTried.Count / maxGuesses, 0f, 1f));
 		
 		//check thresholds
 		if(boss == 1)
@@ -183,6 +183,10 @@ public class LockManager : MonoBehaviour
 			else if(codesTried.Count == Boss3_Phase3)
 			{
 				fightManager.SetPhase(3);
+			}
+			else if(codesTried.Count == Boss3_Phase4)
+			{
+				fightManager.SetPhase(4);
 			}
 			else if(codesTried.Count == Boss3_Solved)
 			{
@@ -258,12 +262,15 @@ public class LockManager : MonoBehaviour
 		heroColor = trueHeroColor;
 		
 		//set hero vulnerable
-		invulnerable = false;
+		if(live)
+		{
+			invulnerable = false;
+		}
 	}
 	
 	private IEnumerator Victory()
 	{
-		StopAllCoroutines();
+		live = false;
 		invulnerable = true;
 		
 		//for each digit, disable arrows
