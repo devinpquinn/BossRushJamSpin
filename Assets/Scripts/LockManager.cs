@@ -34,8 +34,8 @@ public class LockManager : MonoBehaviour
 	[HideInInspector] public int heroPip = -1;
 	
 	public FightManager fightManager;
-	private int Boss1_Phase2;
-	private int Boss1_Solved;
+	private int Boss1_Phase2 = 150;
+	private int Boss1_Solved = 300;
 	
 	private int Boss2_Phase2;
 	private int Boss2_Phase3;
@@ -57,6 +57,14 @@ public class LockManager : MonoBehaviour
 	void Start()
 	{
 		FillDigits();
+		
+		if(PlayerPrefs.HasKey("Boss"))
+		{
+			boss = PlayerPrefs.GetInt("Boss");
+		}
+		
+		//start the fight
+		fightManager.StartFight(boss);
 	}
 	
 	void FillDigits()
@@ -143,6 +151,9 @@ public class LockManager : MonoBehaviour
 			else if(codesTried.Count == Boss1_Solved)
 			{
 				StartCoroutine(Victory());
+				
+				//save boss
+				PlayerPrefs.SetInt("Boss", 2);
 			}
 		}
 		else if(boss == 2)
@@ -158,6 +169,9 @@ public class LockManager : MonoBehaviour
 			else if(codesTried.Count == Boss2_Solved)
 			{
 				StartCoroutine(Victory());
+				
+				//save boss
+				PlayerPrefs.SetInt("Boss", 3);
 			}
 		}
 		else if(boss == 3)
