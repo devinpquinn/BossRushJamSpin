@@ -37,13 +37,13 @@ public class LockManager : MonoBehaviour
 	private int Boss1_Solved = 450;
 	
 	private int Boss2_Phase2 = 200;
-	private int Boss2_Phase3 = 400;
-	private int Boss2_Solved = 600;
+	private int Boss2_Phase3 = 375;
+	private int Boss2_Solved = 550;
 	
-	private int Boss3_Phase2 = 200;
-	private int Boss3_Phase3 = 400;
-	private int Boss3_Phase4 = 600;
-	private int Boss3_Solved = 800;
+	private int Boss3_Phase2 = 175;
+	private int Boss3_Phase3 = 350;
+	private int Boss3_Phase4 = 525;
+	private int Boss3_Solved = 700;
 	
 	private int boss = 1;
 	
