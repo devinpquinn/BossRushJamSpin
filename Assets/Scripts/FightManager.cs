@@ -270,7 +270,7 @@ public class FightManager : MonoBehaviour
 		while (true)
 		{
 			yield return StartCoroutine(attackHandler.Attack("StrainerLargeRight"));
-			yield return new WaitForSeconds(2.5f);
+			yield return new WaitForSeconds(3f);
 			yield return StartCoroutine(attackHandler.Attack("StrainerLargeLeft"));
 			yield return new WaitForSeconds(5);
 		}
@@ -315,7 +315,7 @@ public class FightManager : MonoBehaviour
 			yield return StartCoroutine(attackHandler.Attack("VertLargeBoth"));
 			yield return new WaitForSeconds(5);
 			yield return StartCoroutine(attackHandler.Attack("StrainerLargeRight"));
-			yield return new WaitForSeconds(2.5f);
+			yield return new WaitForSeconds(3f);
 			yield return StartCoroutine(attackHandler.Attack("StrainerLargeLeft"));
 			yield return new WaitForSeconds(5);
 		}

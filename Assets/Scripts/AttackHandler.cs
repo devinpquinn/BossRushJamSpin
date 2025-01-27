@@ -104,20 +104,20 @@ public class AttackHandler : MonoBehaviour
 				thisAttack = Instantiate(attacks[7], transform);
 				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsRight[randomRowRight].transform.position.y, thisAttack.transform.GetChild(0).position.z);
 				break;
-			case "StrainerLargeRight": //2 HorizLargeRight simultaneously at indices 2 and 7
-				yield return ShowWarnings(true, new List<int> { 1, 2, 3, 6, 7, 8 });
-				thisAttack = Instantiate(attacks[7], transform);
-				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsRight[2].transform.position.y, thisAttack.transform.GetChild(0).position.z);
-				thisAttack = Instantiate(attacks[7], transform);
-				thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsRight[7].transform.position.y, thisAttack.transform.GetChild(0).position.z);
+			case "StrainerLargeRight": //HorizSmallRight at indices 1, 3, 5, 7, and 9 simultaneously
+				yield return ShowWarnings(true, new List<int> { 1, 3, 5, 7, 9 });
+				foreach (int i in new List<int> { 1, 3, 5, 7, 9 })
+				{
+					thisAttack = Instantiate(attacks[3], transform);
+					thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsRight[i].transform.position.y, thisAttack.transform.GetChild(0).position.z);
+				}
 				break;
-			case "StrainerLargeLeft": //HorizSmallLeft at indices 0, 4, 5, and 9. For each instantiated object, find its animator and set animator speed to 1.5
-				yield return ShowWarnings(false, new List<int> { 0, 4, 5, 9 });
-				foreach (int i in new List<int> { 0, 4, 5, 9 })
+			case "StrainerLargeLeft": //HorizSmallLeft at indices 0, 2, 4, 6, and 8 simultaneously
+				yield return ShowWarnings(false, new List<int> { 0, 2, 4, 6, 8 });
+				foreach (int i in new List<int> { 0, 2, 4, 6, 8 })
 				{
 					thisAttack = Instantiate(attacks[2], transform);
 					thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsLeft[i].transform.position.y, thisAttack.transform.GetChild(0).position.z);
-					thisAttack.GetComponentInChildren<Animator>().speed = 1.5f;
 				}
 				break;
 		}
