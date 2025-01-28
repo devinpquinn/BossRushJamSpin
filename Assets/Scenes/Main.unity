@@ -618,6 +618,7 @@ GameObject:
   - component: {fileID: 202120308}
   - component: {fileID: 202120307}
   - component: {fileID: 202120306}
+  - component: {fileID: 202120309}
   m_Layer: 5
   m_Name: WelcomeBackground
   m_TagString: Untagged
@@ -696,6 +697,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202120304}
   m_CullTransparentMesh: 1
+--- !u!95 &202120309
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202120304}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a5923a57e7dc91f4cbd800b2773df309, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &263601155 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7642068138157303093, guid: 1645cc86ba55cc5429b3d9266d4d6440, type: 3}
@@ -6971,7 +6994,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1682636672}
-  - component: {fileID: 1682636673}
   - component: {fileID: 1682636674}
   m_Layer: 0
   m_Name: LevelSpinner
@@ -7000,28 +7022,6 @@ Transform:
   - {fileID: 1453462430}
   m_Father: {fileID: 202120305}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!95 &1682636673
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1682636671}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a5923a57e7dc91f4cbd800b2773df309, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!225 &1682636674
 CanvasGroup:
   m_ObjectHideFlags: 0
