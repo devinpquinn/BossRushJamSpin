@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class LockManager : MonoBehaviour
@@ -104,14 +105,21 @@ public class LockManager : MonoBehaviour
 	public void ExitToMenu()
 	{
 		Time.timeScale = 1;
-		sceneFade.Play("SceneFade_Out");
 		StartCoroutine(ExitToMenuCoroutine());
 	}
 	
 	private IEnumerator ExitToMenuCoroutine()
 	{
+		sceneFade.Play("SceneFade_Out");
 		yield return new WaitForSeconds(1);
-		UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+		SceneManager.LoadScene("Menu");
+	}
+	
+	private IEnumerator LoadSceneCoroutine()
+	{
+		sceneFade.Play("SceneFade_Out");
+		yield return new WaitForSeconds(1);
+		SceneManager.LoadScene("Main");
 	}
 	
 	void FillDigits()
