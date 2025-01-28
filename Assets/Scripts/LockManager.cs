@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class LockManager : MonoBehaviour
 {
@@ -47,6 +48,8 @@ public class LockManager : MonoBehaviour
 	
 	private int boss = 1;
 	
+	public TextMeshProUGUI bossText;
+	
 	void Awake()
 	{
 		instance = this;
@@ -61,6 +64,15 @@ public class LockManager : MonoBehaviour
 		if(PlayerPrefs.HasKey("Boss"))
 		{
 			boss = PlayerPrefs.GetInt("Boss");
+		}
+		
+		if(boss == 2)
+		{
+			bossText.text = "++";
+		}
+		else if(boss == 3)
+		{
+			bossText.text = "+++";
 		}
 		
 		//start the fight
