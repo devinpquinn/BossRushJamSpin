@@ -50,6 +50,8 @@ public class LockManager : MonoBehaviour
 	
 	public TextMeshProUGUI bossText;
 	
+	public GameObject pauseScreen;
+	
 	void Awake()
 	{
 		instance = this;
@@ -77,6 +79,25 @@ public class LockManager : MonoBehaviour
 		
 		//start the fight
 		fightManager.StartFight(boss);
+	}
+	
+	public void Pause()
+	{
+		if(!live)
+		{
+			return;
+		}
+		
+		pauseScreen.SetActive(true);
+		Time.timeScale = 0;
+		live = false;
+	}
+	
+	public void Resume()
+	{
+		pauseScreen.SetActive(false);
+		Time.timeScale = 1;
+		live = true;
 	}
 	
 	void FillDigits()

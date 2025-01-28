@@ -1710,6 +1710,7 @@ MonoBehaviour:
   heroPip: -1
   fightManager: {fileID: 521127016}
   bossText: {fileID: 899913030}
+  pauseScreen: {fileID: 789929086}
 --- !u!1 &679398086 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7642068138157303093, guid: 1645cc86ba55cc5429b3d9266d4d6440, type: 3}
@@ -2401,6 +2402,22 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 670940170}
+          m_TargetAssemblyTypeName: LockManager, Assembly-CSharp
+          m_MethodName: Pause
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6511,6 +6528,34 @@ PrefabInstance:
     - target: {fileID: 3050488560955976451, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_text
       value: RETURN TO GAME
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735047295850597132, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735047295850597132, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735047295850597132, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 670940170}
+    - target: {fileID: 4735047295850597132, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735047295850597132, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735047295850597132, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LockManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735047295850597132, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5901050421293934585, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_text
