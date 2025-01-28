@@ -655,7 +655,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202120304}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -2236,6 +2236,11 @@ MonoBehaviour:
   bossText: {fileID: 899913030}
   pauseScreen: {fileID: 789929086}
   sceneFade: {fileID: 1657253071}
+  lvl3Text: {fileID: 173721311}
+  level0text: {fileID: 1285691953}
+  level1text: {fileID: 373930256}
+  level2text: {fileID: 319798833}
+  level3text: {fileID: 1453462431}
 --- !u!1 &679398086 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7642068138157303093, guid: 1645cc86ba55cc5429b3d9266d4d6440, type: 3}

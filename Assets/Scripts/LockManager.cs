@@ -54,6 +54,12 @@ public class LockManager : MonoBehaviour
 	public GameObject pauseScreen;
 	public Animator sceneFade;
 	
+	public TextMeshProUGUI lvl3Text;
+	public TextMeshProUGUI level0text;
+	public TextMeshProUGUI level1text;
+	public TextMeshProUGUI level2text;
+	public TextMeshProUGUI level3text;
+	
 	void Awake()
 	{
 		instance = this;
@@ -73,10 +79,22 @@ public class LockManager : MonoBehaviour
 		if(boss == 2)
 		{
 			bossText.text = "++";
+			
+			lvl3Text.text = "Level 0";
+			level0text.text = "Level 1";
+			level1text.text = "Level 2";
+			level2text.text = "Level 3";
+			level3text.text = "Level 0";
 		}
 		else if(boss == 3)
 		{
 			bossText.text = "+++";
+			
+			lvl3Text.text = "Level 1";
+			level0text.text = "Level 2";
+			level1text.text = "Level 3";
+			level2text.text = "Level 0";
+			level3text.text = "Level 1";
 		}
 		
 		//start the fight
