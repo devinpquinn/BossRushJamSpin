@@ -51,6 +51,7 @@ public class LockManager : MonoBehaviour
 	public TextMeshProUGUI bossText;
 	
 	public GameObject pauseScreen;
+	public Animator sceneFade;
 	
 	void Awake()
 	{
@@ -98,6 +99,19 @@ public class LockManager : MonoBehaviour
 		pauseScreen.SetActive(false);
 		Time.timeScale = 1;
 		live = true;
+	}
+	
+	public void ExitToMenu()
+	{
+		Time.timeScale = 1;
+		sceneFade.Play("SceneFade_Out");
+		StartCoroutine(ExitToMenuCoroutine());
+	}
+	
+	private IEnumerator ExitToMenuCoroutine()
+	{
+		yield return new WaitForSeconds(1);
+		UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
 	}
 	
 	void FillDigits()
