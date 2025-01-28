@@ -41,7 +41,7 @@ public class MenuButtonHover : MonoBehaviour
 		float t = 0;
 		while (t < 0.1f)
 		{
-			t += Time.deltaTime;
+			t += Time.unscaledDeltaTime;
 			rectTransform.localScale = Vector3.Lerp(Vector3.one, Vector3.one * 1.1f, t / 0.1f);
 			yield return null;
 		}
@@ -55,7 +55,7 @@ public class MenuButtonHover : MonoBehaviour
 		float t = 0;
 		while (t < 0.1f)
 		{
-			t += Time.deltaTime;
+			t += Time.unscaledDeltaTime;
 			rectTransform.localScale = Vector3.Lerp(Vector3.one * 1.1f, Vector3.one, t / 0.1f);
 			yield return null;
 		}
