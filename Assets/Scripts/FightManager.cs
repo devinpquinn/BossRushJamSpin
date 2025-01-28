@@ -5,6 +5,7 @@ public class FightManager : MonoBehaviour
 {
 	private int boss = 1;
 	private AttackHandler attackHandler;
+	public LockManager lockManager;
 	
 	void Start()
 	{
@@ -80,7 +81,8 @@ public class FightManager : MonoBehaviour
 	
 	IEnumerator Boss1_Phase1()
 	{
-		yield return new WaitForSeconds(10);
+		yield return new WaitUntil(() => lockManager.heroPip != -1);
+		yield return new WaitForSeconds(5);
 		
 		//alternate HorizSmallRight and HorizSmallLeft attacks every 5 seconds
 		while (true)
@@ -108,7 +110,8 @@ public class FightManager : MonoBehaviour
 	
 	IEnumerator Boss2_Phase1()
 	{
-		yield return new WaitForSeconds(5);
+		yield return new WaitUntil(() => lockManager.heroPip != -1);
+		yield return new WaitForSeconds(4);
 		
 		//in a loop, do the following:
 		//trigger 3 HorizSmallRight attacks in a burst, each 1 second apart
@@ -215,7 +218,8 @@ public class FightManager : MonoBehaviour
 	
 	IEnumerator Boss3_Phase1()
 	{
-		yield return new WaitForSeconds(5);
+		yield return new WaitUntil(() => lockManager.heroPip != -1);
+		yield return new WaitForSeconds(3);
 		
 		//in a loop, do the following:
 		//trigger a HorizLargeRight attack
