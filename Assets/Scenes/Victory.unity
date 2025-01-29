@@ -378,10 +378,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 202120304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93e6c7ee9d15b1a449c3dae8bacd1299, type: 3}
+  m_Script: {fileID: 11500000, guid: 661ff1b454149a44d94d8e6641a5bf73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shake: {fileID: 519420033}
 --- !u!1 &319798831
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,7 +447,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 862805091
+    rgba: 7167075
   m_fontColor: {r: 0.3882353, g: 0.36078432, b: 0.42745098, a: 0.2}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -584,7 +583,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 862805091
+    rgba: 4279436309
   m_fontColor: {r: 0.3882353, g: 0.36078432, b: 0.42745098, a: 0.2}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1234,7 +1233,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285357155
+    rgba: 7167075
   m_fontColor: {r: 0.3882353, g: 0.36078432, b: 0.42745098, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3

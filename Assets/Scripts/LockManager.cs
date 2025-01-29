@@ -129,7 +129,14 @@ public class LockManager : MonoBehaviour
 	public void LoadScene()
 	{
 		Time.timeScale = 1;
-		StartCoroutine(LoadSceneCoroutine());
+		if(boss < 4)
+		{
+			StartCoroutine(LoadSceneCoroutine());
+		}
+		else
+		{
+			StartCoroutine(LoadSceneCoroutine("Victory"));
+		}
 	}
 	
 	private IEnumerator ExitToMenuCoroutine()
@@ -139,11 +146,11 @@ public class LockManager : MonoBehaviour
 		SceneManager.LoadScene("Menu");
 	}
 	
-	private IEnumerator LoadSceneCoroutine()
+	private IEnumerator LoadSceneCoroutine(string sceneName = "Main")
 	{
 		sceneFade.Play("SceneFade_Out");
 		yield return new WaitForSeconds(1);
-		SceneManager.LoadScene("Main");
+		SceneManager.LoadScene(sceneName);
 	}
 	
 	void FillDigits()
