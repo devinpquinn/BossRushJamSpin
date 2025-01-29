@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 173721312}
   - component: {fileID: 173721311}
   m_Layer: 5
-  m_Name: Level 3
+  m_Name: Level 3 Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 202120307}
   - component: {fileID: 202120306}
   - component: {fileID: 202120309}
+  - component: {fileID: 202120310}
   m_Layer: 5
   m_Name: WelcomeBackground
   m_TagString: Untagged
@@ -356,7 +357,7 @@ Animator:
   m_GameObject: {fileID: 202120304}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a5923a57e7dc91f4cbd800b2773df309, type: 2}
+  m_Controller: {fileID: 9100000, guid: 85afa098c8cb6de499f76054ea001d4d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -368,6 +369,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &202120310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202120304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e6c7ee9d15b1a449c3dae8bacd1299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shake: {fileID: 519420033}
 --- !u!1 &319798831
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,8 +805,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   start: 0
-  duration: 0.5
-  power: 0.075
+  duration: 0.1
+  power: 0.05
   curve:
     serializedVersion: 2
     m_Curve:
@@ -1302,7 +1316,7 @@ GameObject:
   - component: {fileID: 1453462432}
   - component: {fileID: 1453462431}
   m_Layer: 5
-  m_Name: Level 3
+  m_Name: Level 3 Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
