@@ -786,7 +786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7727007020849504350, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7727007020849504350, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_AnchorMin.x
@@ -794,7 +794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7727007020849504350, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7727007020849504350, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_SizeDelta.x
@@ -834,11 +834,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7727007020849504350, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 7727007020849504350, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -475
       objectReference: {fileID: 0}
     - target: {fileID: 7727007020849504350, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3972,7 +3972,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &927086364
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6826,6 +6826,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1511490412}
+  - component: {fileID: 1511490413}
   m_Layer: 5
   m_Name: VictoryScreen
   m_TagString: Untagged
@@ -6854,6 +6855,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1200, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1511490413
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511490411}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 36596a4e12baaa842865b77bb1aaac0b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1522517945 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7642068138157303093, guid: 1645cc86ba55cc5429b3d9266d4d6440, type: 3}
@@ -8200,7 +8223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7727007020849504350, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7727007020849504350, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_AnchorMin.x
@@ -8208,7 +8231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7727007020849504350, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7727007020849504350, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_SizeDelta.x
@@ -8248,11 +8271,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7727007020849504350, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 7727007020849504350, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -325
       objectReference: {fileID: 0}
     - target: {fileID: 7727007020849504350, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
