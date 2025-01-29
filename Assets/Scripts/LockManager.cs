@@ -86,7 +86,7 @@ public class LockManager : MonoBehaviour
 			level2text.text = "Level 3";
 			level3text.text = "Level 0";
 		}
-		else if(boss == 3)
+		else if(boss >= 3)
 		{
 			bossText.text = "+++";
 			
@@ -270,6 +270,9 @@ public class LockManager : MonoBehaviour
 			else if(codesTried.Count == Boss3_Solved)
 			{
 				StartCoroutine(Victory());
+				
+				//save boss
+				PlayerPrefs.SetInt("Boss", 4);
 			}
 		}
 	}
