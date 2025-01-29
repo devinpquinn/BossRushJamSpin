@@ -6,6 +6,7 @@ public class ShakeTrigger : MonoBehaviour
 	
 	public void TriggerShake()
 	{
+		shake.duration = 0.5f;
 		shake.start = true;
 	}
 }

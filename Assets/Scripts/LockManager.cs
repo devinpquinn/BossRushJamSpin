@@ -36,7 +36,8 @@ public class LockManager : MonoBehaviour
 	
 	public FightManager fightManager;
 	private int Boss1_Phase2 = 225;
-	private int Boss1_Solved = 450;
+	//private int Boss1_Solved = 450;
+	private int Boss1_Solved = 4;
 	
 	private int Boss2_Phase2 = 200;
 	private int Boss2_Phase3 = 375;
