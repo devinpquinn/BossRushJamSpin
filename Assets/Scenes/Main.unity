@@ -1733,7 +1733,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.33
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2865,7 +2865,7 @@ MonoBehaviour:
   heroPip: -1
   fightManager: {fileID: 521127016}
   hitSource: {fileID: 517643627}
-  hitClip: {fileID: 8300000, guid: 986c85a1953c2f64a9346db968728b5f, type: 3}
+  hitClip: {fileID: 8300000, guid: 0988759688c002b488ad9192d91babec, type: 3}
   bossText: {fileID: 899913030}
   pauseScreen: {fileID: 789929086}
   sceneFade: {fileID: 1657253071}
