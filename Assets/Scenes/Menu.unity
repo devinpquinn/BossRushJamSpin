@@ -1358,6 +1358,7 @@ MonoBehaviour:
   continueButton: {fileID: 167159068}
   bonusButton: {fileID: 911682012}
   spin: {fileID: 519420034}
+  victoryColor: {r: 1, g: 0.8352941, b: 0, a: 1}
 --- !u!1 &1317112524
 GameObject:
   m_ObjectHideFlags: 0

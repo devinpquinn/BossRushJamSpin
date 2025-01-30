@@ -9,6 +9,7 @@ public class MenuController : MonoBehaviour
 	
 	public Animator spin;
 	private bool spinning = false;
+	public Color victoryColor;
 	
 	private bool live = true;
 	
@@ -21,6 +22,8 @@ public class MenuController : MonoBehaviour
 			if(PlayerPrefs.GetInt("Boss") > 3)
 			{
 				bonusButton.SetActive(true);
+				
+				Camera.main.backgroundColor = victoryColor;
 			}
 			continueButton.SetActive(true);
 		}
