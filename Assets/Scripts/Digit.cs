@@ -133,6 +133,7 @@ public class Digit : MonoBehaviour
 	
 	public void PlaySound()
 	{
+		pipSource.pitch = Mathf.Lerp(0.8f, 1.2f, (float)value / 9f);
 		if(!lockManager.IsCodeTried())
 		{
 			pipSource.PlayOneShot(markSound);
