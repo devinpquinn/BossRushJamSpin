@@ -303,6 +303,16 @@ public class LockManager : MonoBehaviour
 		return false;
 	}
 	
+	public int GetCurrentCode()
+	{
+		string codeString = "";
+		foreach (Digit digit in digits)
+			codeString += digit.value.ToString();
+			
+		//construct int from string
+		return int.Parse(codeString);
+	}
+	
 	public void Damage()
 	{
 		if(!live || invulnerable)

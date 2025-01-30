@@ -134,6 +134,10 @@ public class Digit : MonoBehaviour
 	public void PlaySound()
 	{
 		pipSource.pitch = Mathf.Lerp(0.8f, 1.2f, (float)value / 9f);
+		
+		//set pip source stereo pan based on GetCurrentCode
+		pipSource.panStereo = Mathf.Lerp(-0.7f, 0.7f, ((float)lockManager.GetCurrentCode() % 100) / 99f);
+		
 		if(!lockManager.IsCodeTried())
 		{
 			pipSource.PlayOneShot(markSound);
