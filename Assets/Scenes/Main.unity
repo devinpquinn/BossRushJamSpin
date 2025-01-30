@@ -875,7 +875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3050488560955976451, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_text
-      value: EXIT TO MENU
+      value: Exit to Menu
       objectReference: {fileID: 0}
     - target: {fileID: 4735047295850597132, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -907,7 +907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5901050421293934585, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_text
-      value: EXIT TO MENU
+      value: Exit to Menu
       objectReference: {fileID: 0}
     - target: {fileID: 7727007020849504350, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_Pivot.x
@@ -4362,7 +4362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3050488560955976451, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_text
-      value: EXIT TO MENU
+      value: Exit to Menu
       objectReference: {fileID: 0}
     - target: {fileID: 4735047295850597132, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -4394,7 +4394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5901050421293934585, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_text
-      value: EXIT TO MENU
+      value: Exit to Menu
       objectReference: {fileID: 0}
     - target: {fileID: 7727007020849504350, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_Pivot.x
@@ -8202,7 +8202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3050488560955976451, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_text
-      value: RETURN TO GAME
+      value: Return to Game
       objectReference: {fileID: 0}
     - target: {fileID: 4735047295850597132, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -8234,7 +8234,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5901050421293934585, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_text
-      value: RETURN TO GAME
+      value: Return to Game
       objectReference: {fileID: 0}
     - target: {fileID: 7727007020849504350, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_Pivot.x
@@ -8508,7 +8508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3050488560955976451, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_text
-      value: CONTINUE
+      value: Continue
       objectReference: {fileID: 0}
     - target: {fileID: 4735047295850597132, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -8540,7 +8540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5901050421293934585, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_text
-      value: CONTINUE
+      value: Continue
       objectReference: {fileID: 0}
     - target: {fileID: 7727007020849504350, guid: 6ce799c3be76ae14a805c5a03fdc88d9, type: 3}
       propertyPath: m_Pivot.x
