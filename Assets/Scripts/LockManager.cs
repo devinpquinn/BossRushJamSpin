@@ -79,8 +79,6 @@ public class LockManager : MonoBehaviour
 			boss = PlayerPrefs.GetInt("Boss");
 		}
 		
-		boss = 3;
-		
 		if(boss == 2)
 		{
 			bossText.text = "++";
