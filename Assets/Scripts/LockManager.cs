@@ -60,6 +60,10 @@ public class LockManager : MonoBehaviour
 	public TextMeshProUGUI level2text;
 	public TextMeshProUGUI level3text;
 	
+	public AudioSource pipSource;
+	public AudioClip markClip;
+	public AudioClip bumpClip;
+	
 	void Awake()
 	{
 		instance = this;
@@ -206,6 +210,10 @@ public class LockManager : MonoBehaviour
 		if (codesTried.Contains(code))
 		{
 			progressPips.BumpPip(code);
+			
+			//sfx
+			pipSource.PlayOneShot(bumpClip);
+			
 			return;
 		}
 			
@@ -214,6 +222,9 @@ public class LockManager : MonoBehaviour
 		
 		//mark progress pip corresponding to code
 		progressPips.MarkPip(code);
+		
+		//sfx
+		pipSource.PlayOneShot(markClip);
 			
 		//update progress bar
 		int maxGuesses = Boss1_Solved;
