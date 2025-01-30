@@ -4,7 +4,11 @@ using UnityEngine;
 public class MenuController : MonoBehaviour
 {
 	public GameObject continueButton;
+	public GameObject bonusButton;
 	private Animator animator;
+	
+	public Animator spin;
+	private bool spinning = false;
 	
 	private bool live = true;
 	
@@ -14,6 +18,10 @@ public class MenuController : MonoBehaviour
 		
 		if(PlayerPrefs.HasKey("Boss") && PlayerPrefs.GetInt("Boss") > 1)
 		{
+			if(PlayerPrefs.GetInt("Boss") > 3)
+			{
+				bonusButton.SetActive(true);
+			}
 			continueButton.SetActive(true);
 		}
 	}
@@ -55,6 +63,28 @@ public class MenuController : MonoBehaviour
 		}
 		
 		StartCoroutine(DoQuit());
+	}
+	
+	public void Bonus()
+	{
+		if(!live || spinning)
+		{
+			return;
+		}
+		
+		StartCoroutine(DoBonus());
+	}
+	
+	IEnumerator DoBonus()
+	{
+		live = false;
+		spinning = true;
+		
+		spin.Play("MainMenuCam_Spin", 0, 0);
+		yield return new WaitForSeconds(2f);
+		
+		live = true;
+		spinning = false;
 	}
 	
 	IEnumerator DoQuit()
