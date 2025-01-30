@@ -49,6 +49,9 @@ public class LockManager : MonoBehaviour
 	
 	private int boss = 1;
 	
+	public AudioSource hitSource;
+	public AudioClip hitClip;
+	
 	public TextMeshProUGUI bossText;
 	
 	public GameObject pauseScreen;
@@ -75,6 +78,8 @@ public class LockManager : MonoBehaviour
 		{
 			boss = PlayerPrefs.GetInt("Boss");
 		}
+		
+		boss = 3;
 		
 		if(boss == 2)
 		{
@@ -327,6 +332,9 @@ public class LockManager : MonoBehaviour
 			StopCoroutine(damageCoroutine);
 		}
 		damageCoroutine = StartCoroutine(DamageMeter());
+		
+		hitSource.panStereo = Mathf.Lerp(-0.5f, 0.5f, ((float)heroPip % 100) / 99f);
+		hitSource.PlayOneShot(hitClip);
 		
 		if(damage > 1.01f)
 		{
