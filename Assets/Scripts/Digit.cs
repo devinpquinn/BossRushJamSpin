@@ -21,6 +21,10 @@ public class Digit : MonoBehaviour
 	private Vector3 shakeRotation = new Vector3(5, 0, 0);
 	private Vector3 aboveTextBaseRotation;
 	private Vector3 belowTextBaseRotation;
+	
+	public AudioSource pipSource;
+	public AudioClip markSound;
+	public AudioClip bumpSound;
 
 	private void Awake()
 	{
@@ -95,6 +99,8 @@ public class Digit : MonoBehaviour
 			value = 0;
 		text.text = value.ToString();
 		
+		PlaySound();
+		
 		UpdateAboveBelowText();
 		
 		lockManager.CheckCode();
@@ -115,12 +121,26 @@ public class Digit : MonoBehaviour
 		
 		UpdateAboveBelowText();
 		
+		PlaySound();
+		
 		lockManager.CheckCode();
 		
 		if(shakeCoroutine != null)
 			StopCoroutine(shakeCoroutine);
 			
 		shakeCoroutine = StartCoroutine(ShakeTextDown());
+	}
+	
+	public void PlaySound()
+	{
+		if(!lockManager.IsCodeTried())
+		{
+			pipSource.PlayOneShot(markSound);
+		}
+		else
+		{
+			pipSource.PlayOneShot(bumpSound);
+		}
 	}
 	
 	private void UpdateAboveBelowText()

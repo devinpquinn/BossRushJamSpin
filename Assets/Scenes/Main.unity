@@ -1163,6 +1163,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1164642531637138201, guid: 7aec86174e87e084596cda9a6455ae6a, type: 3}
+      propertyPath: pipSource
+      value: 
+      objectReference: {fileID: 747275427}
     - target: {fileID: 2109754614189849180, guid: 7aec86174e87e084596cda9a6455ae6a, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -2739,9 +2743,6 @@ MonoBehaviour:
   level1text: {fileID: 373930256}
   level2text: {fileID: 319798833}
   level3text: {fileID: 1453462431}
-  pipSource: {fileID: 747275427}
-  markClip: {fileID: 8300000, guid: 28c40d13b586b73498e09d7a364aff16, type: 3}
-  bumpClip: {fileID: 8300000, guid: 090daf3a092d605428693005d277321a, type: 3}
 --- !u!1 &679398086 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7642068138157303093, guid: 1645cc86ba55cc5429b3d9266d4d6440, type: 3}
@@ -7865,6 +7866,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1164642531637138201, guid: 7aec86174e87e084596cda9a6455ae6a, type: 3}
+      propertyPath: pipSource
+      value: 
+      objectReference: {fileID: 747275427}
     - target: {fileID: 2109754614189849180, guid: 7aec86174e87e084596cda9a6455ae6a, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -9571,6 +9576,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1164642531637138201, guid: 7aec86174e87e084596cda9a6455ae6a, type: 3}
+      propertyPath: pipSource
+      value: 
+      objectReference: {fileID: 747275427}
     - target: {fileID: 2109754614189849180, guid: 7aec86174e87e084596cda9a6455ae6a, type: 3}
       propertyPath: m_fontAsset
       value: 
