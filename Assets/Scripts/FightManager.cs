@@ -11,6 +11,7 @@ public class FightManager : MonoBehaviour
 	public AudioSource warningRight;
 	public AudioClip warningClip;
 	public AudioClip horizSmallClip;
+	public AudioClip vertSmallClip;
 	
 	void Start()
 	{
@@ -19,6 +20,10 @@ public class FightManager : MonoBehaviour
 	
 	public void StartFight(int whichBoss)
 	{
+		boss = 2;
+		StartCoroutine(Boss2_Phase1());
+		return;
+		
 		boss = whichBoss;
 		switch (whichBoss)
 		{
@@ -113,9 +118,16 @@ public class FightManager : MonoBehaviour
 		//alternate VertSmallRight and VertSmallLeft attacks every 35 seconds
 		while (true)
 		{
+			warningRight.PlayOneShot(warningClip);
 			yield return StartCoroutine(attackHandler.Attack("VertSmallRight"));
+			warningRight.PlayOneShot(vertSmallClip);
+			
 			yield return new WaitForSeconds(35);
+			
+			warningLeft.PlayOneShot(warningClip);
 			yield return StartCoroutine(attackHandler.Attack("VertSmallLeft"));
+			warningLeft.PlayOneShot(vertSmallClip);
+			
 			yield return new WaitForSeconds(35);
 		}
 	}
