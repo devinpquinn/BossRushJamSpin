@@ -20,7 +20,7 @@ public class LockManager : MonoBehaviour
 	public GameObject defeatScreen;
 	
 	public Image healthMeter;
-	private float damage = 0;
+	private float damage = 1;
 	private Coroutine damageCoroutine;
 	
 	public Shake shake;
@@ -36,7 +36,8 @@ public class LockManager : MonoBehaviour
 	
 	public FightManager fightManager;
 	private int Boss1_Phase2 = 225;
-	private int Boss1_Solved = 450;
+	//private int Boss1_Solved = 450;
+	private int Boss1_Solved = 20;
 	
 	private int Boss2_Phase2 = 200;
 	private int Boss2_Phase3 = 375;
@@ -62,6 +63,9 @@ public class LockManager : MonoBehaviour
 	public TextMeshProUGUI level1text;
 	public TextMeshProUGUI level2text;
 	public TextMeshProUGUI level3text;
+	
+	public AudioClip victoryClip;
+	public AudioClip defeatClip;
 	
 	void Awake()
 	{
@@ -394,6 +398,8 @@ public class LockManager : MonoBehaviour
 	
 	private IEnumerator Victory()
 	{
+		fightManager.StopAllCoroutines();
+		
 		live = false;
 		invulnerable = true;
 		
@@ -414,6 +420,8 @@ public class LockManager : MonoBehaviour
 		//flash
 		flash.GetComponent<Image>().color = heroColor;
 		flash.SetActive(true);
+		
+		GetComponent<AudioSource>().PlayOneShot(victoryClip);
 		
 		//shake
 		shake.duration = 1;
@@ -437,6 +445,8 @@ public class LockManager : MonoBehaviour
 	
 	private IEnumerator Defeat()
 	{
+		fightManager.StopAllCoroutines();
+		
 		foreach (Digit digit in digits)
 		{
 			digit.anim.Play("Digit_Defeat");
@@ -458,6 +468,8 @@ public class LockManager : MonoBehaviour
 		//flash
 		flash.GetComponent<Image>().color = dangerColor;
 		flash.SetActive(true);
+		
+		GetComponent<AudioSource>().PlayOneShot(defeatClip);
 		
 		//shake
 		shake.duration = 1;
