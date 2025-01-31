@@ -7,6 +7,10 @@ public class FightManager : MonoBehaviour
 	private AttackHandler attackHandler;
 	public LockManager lockManager;
 	
+	public AudioSource warningLeft;
+	public AudioSource warningRight;
+	public AudioClip warningClip;
+	
 	void Start()
 	{
 		attackHandler = GetComponent<AttackHandler>();
@@ -87,9 +91,14 @@ public class FightManager : MonoBehaviour
 		//alternate HorizSmallRight and HorizSmallLeft attacks every 5 seconds
 		while (true)
 		{
+			warningRight.PlayOneShot(warningClip);
 			yield return StartCoroutine(attackHandler.Attack("HorizSmallRight"));
+			
 			yield return new WaitForSeconds(5);
+			
+			warningLeft.PlayOneShot(warningClip);
 			yield return StartCoroutine(attackHandler.Attack("HorizSmallLeft"));
+			
 			yield return new WaitForSeconds(5);
 		}
 	}
