@@ -10,6 +10,7 @@ public class FightManager : MonoBehaviour
 	public AudioSource warningLeft;
 	public AudioSource warningRight;
 	public AudioClip warningClip;
+	public AudioClip horizSmallClip;
 	
 	void Start()
 	{
@@ -93,11 +94,13 @@ public class FightManager : MonoBehaviour
 		{
 			warningRight.PlayOneShot(warningClip);
 			yield return StartCoroutine(attackHandler.Attack("HorizSmallRight"));
+			warningRight.PlayOneShot(horizSmallClip);
 			
 			yield return new WaitForSeconds(5);
 			
 			warningLeft.PlayOneShot(warningClip);
 			yield return StartCoroutine(attackHandler.Attack("HorizSmallLeft"));
+			warningLeft.PlayOneShot(horizSmallClip);
 			
 			yield return new WaitForSeconds(5);
 		}

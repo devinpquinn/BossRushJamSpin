@@ -2364,7 +2364,8 @@ MonoBehaviour:
   lockManager: {fileID: 670940170}
   warningLeft: {fileID: 932821216}
   warningRight: {fileID: 232807882}
-  warningClip: {fileID: 8300000, guid: 3051a3a4b4a6f304eb3b5a854da29cc8, type: 3}
+  warningClip: {fileID: 8300000, guid: 1548c5c3367e8ec4182610bde590fb40, type: 3}
+  horizSmallClip: {fileID: 8300000, guid: 4821a6b45574dd541bcf7203d20316ae, type: 3}
 --- !u!1 &591837898
 GameObject:
   m_ObjectHideFlags: 0
