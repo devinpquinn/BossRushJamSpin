@@ -9,9 +9,13 @@ public class FightManager : MonoBehaviour
 	
 	public AudioSource warningLeft;
 	public AudioSource warningRight;
+	public AudioSource warningCenter;
 	public AudioClip warningClip;
 	public AudioClip horizSmallClip;
 	public AudioClip vertSmallClip;
+	public AudioClip horizLargeClip;
+	public AudioClip vertLargeClip;
+	public AudioClip strainerClip;
 	
 	void Start()
 	{
@@ -20,8 +24,8 @@ public class FightManager : MonoBehaviour
 	
 	public void StartFight(int whichBoss)
 	{
-		boss = 2;
-		StartCoroutine(Boss2_Phase3());
+		boss = 3;
+		StartCoroutine(Boss3_Phase1());
 		return;
 		
 		boss = whichBoss;
@@ -266,11 +270,9 @@ public class FightManager : MonoBehaviour
 			}
 			yield return new WaitForSeconds(1);
 			
-			warningLeft.PlayOneShot(warningClip);
-			warningRight.PlayOneShot(warningClip);
+			warningCenter.PlayOneShot(warningClip);
 			yield return StartCoroutine(attackHandler.Attack("VertSmallBoth"));
-			warningLeft.PlayOneShot(vertSmallClip);
-			warningRight.PlayOneShot(vertSmallClip);
+			warningCenter.PlayOneShot(vertSmallClip);
 			
 			yield return new WaitForSeconds(3);
 		}
@@ -291,11 +293,22 @@ public class FightManager : MonoBehaviour
 		
 		while (true)
 		{
+			warningRight.PlayOneShot(warningClip);
 			yield return StartCoroutine(attackHandler.Attack("HorizLargeRight"));
+			warningRight.PlayOneShot(horizLargeClip);
+			
 			yield return new WaitForSeconds(2);
+			
+			warningLeft.PlayOneShot(warningClip);
 			yield return StartCoroutine(attackHandler.Attack("HorizLargeLeft"));
+			warningLeft.PlayOneShot(horizLargeClip);
+			
 			yield return new WaitForSeconds(2);
+			
+			warningCenter.PlayOneShot(warningClip);
 			yield return StartCoroutine(attackHandler.Attack("HorizLargeBoth"));
+			warningCenter.PlayOneShot(horizLargeClip);
+			
 			yield return new WaitForSeconds(7);
 		}
 	}
