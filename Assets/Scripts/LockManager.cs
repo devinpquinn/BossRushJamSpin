@@ -20,7 +20,7 @@ public class LockManager : MonoBehaviour
 	public GameObject defeatScreen;
 	
 	public Image healthMeter;
-	private float damage = 1;
+	private float damage = 0;
 	private Coroutine damageCoroutine;
 	
 	public Shake shake;
@@ -36,8 +36,7 @@ public class LockManager : MonoBehaviour
 	
 	public FightManager fightManager;
 	private int Boss1_Phase2 = 225;
-	//private int Boss1_Solved = 450;
-	private int Boss1_Solved = 20;
+	private int Boss1_Solved = 450;
 	
 	private int Boss2_Phase2 = 200;
 	private int Boss2_Phase3 = 375;
