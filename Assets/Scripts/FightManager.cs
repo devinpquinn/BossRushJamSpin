@@ -21,7 +21,7 @@ public class FightManager : MonoBehaviour
 	public void StartFight(int whichBoss)
 	{
 		boss = 2;
-		StartCoroutine(Boss2_Phase1());
+		StartCoroutine(Boss2_Phase3());
 		return;
 		
 		boss = whichBoss;
@@ -150,24 +150,34 @@ public class FightManager : MonoBehaviour
 		{
 			for(int i = 0; i < 3; i++)
 			{
+				warningRight.PlayOneShot(warningClip);
 				yield return StartCoroutine(attackHandler.Attack("HorizSmallRight"));
+				warningRight.PlayOneShot(horizSmallClip);
+				
 				yield return new WaitForSeconds(1);
 			}
 			yield return new WaitForSeconds(2);
 			for(int i = 0; i < 3; i++)
 			{
+				warningLeft.PlayOneShot(warningClip);
 				yield return StartCoroutine(attackHandler.Attack("HorizSmallLeft"));
+				warningLeft.PlayOneShot(horizSmallClip);
+				
 				yield return new WaitForSeconds(1);
 			}
 			yield return new WaitForSeconds(2);
 			
 			if(right)
 			{
+				warningRight.PlayOneShot(warningClip);
 				yield return StartCoroutine(attackHandler.Attack("VertSmallRight"));
+				warningRight.PlayOneShot(vertSmallClip);
 			}
 			else
 			{
+				warningLeft.PlayOneShot(warningClip);
 				yield return StartCoroutine(attackHandler.Attack("VertSmallLeft"));
+				warningLeft.PlayOneShot(vertSmallClip);
 			}
 			right = !right;
 			yield return new WaitForSeconds(5);
@@ -192,19 +202,33 @@ public class FightManager : MonoBehaviour
 		{
 			for(int i = 0; i < 4; i++)
 			{
+				warningRight.PlayOneShot(warningClip);
 				yield return StartCoroutine(attackHandler.Attack("HorizSmallRight"));
+				warningRight.PlayOneShot(horizSmallClip);
+				
 				yield return new WaitForSeconds(1);
 			}
 			yield return new WaitForSeconds(1.5f);
+			
+			warningRight.PlayOneShot(warningClip);
 			yield return StartCoroutine(attackHandler.Attack("VertSmallRight"));
+			warningRight.PlayOneShot(vertSmallClip);
+			
 			yield return new WaitForSeconds(1.5f);
 			for(int i = 0; i < 4; i++)
 			{
+				warningLeft.PlayOneShot(warningClip);
 				yield return StartCoroutine(attackHandler.Attack("HorizSmallLeft"));
+				warningLeft.PlayOneShot(horizSmallClip);
+				
 				yield return new WaitForSeconds(1);
 			}
 			yield return new WaitForSeconds(1.5f);
+			
+			warningLeft.PlayOneShot(warningClip);
 			yield return StartCoroutine(attackHandler.Attack("VertSmallLeft"));
+			warningLeft.PlayOneShot(vertSmallClip);
+			
 			yield return new WaitForSeconds(4);
 		}
 	}
@@ -225,17 +249,29 @@ public class FightManager : MonoBehaviour
 		{
 			for(int i = 0; i < 5; i++)
 			{
+				warningRight.PlayOneShot(warningClip);
 				yield return StartCoroutine(attackHandler.Attack("HorizSmallRight"));
+				warningRight.PlayOneShot(horizSmallClip);
+				
 				yield return new WaitForSeconds(1);
 			}
 			yield return new WaitForSeconds(1);
 			for(int i = 0; i < 5; i++)
 			{
+				warningLeft.PlayOneShot(warningClip);
 				yield return StartCoroutine(attackHandler.Attack("HorizSmallLeft"));
+				warningLeft.PlayOneShot(horizSmallClip);
+				
 				yield return new WaitForSeconds(1);
 			}
 			yield return new WaitForSeconds(1);
+			
+			warningLeft.PlayOneShot(warningClip);
+			warningRight.PlayOneShot(warningClip);
 			yield return StartCoroutine(attackHandler.Attack("VertSmallBoth"));
+			warningLeft.PlayOneShot(vertSmallClip);
+			warningRight.PlayOneShot(vertSmallClip);
+			
 			yield return new WaitForSeconds(3);
 		}
 	}
