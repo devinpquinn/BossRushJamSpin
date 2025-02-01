@@ -138,6 +138,8 @@ public class LockManager : MonoBehaviour
 	{
 		Time.timeScale = 1;
 		StartCoroutine(ExitToMenuCoroutine());
+		
+		StartCoroutine(FadeOutMusic());
 	}
 	
 	public void LoadScene()
@@ -151,6 +153,8 @@ public class LockManager : MonoBehaviour
 		{
 			StartCoroutine(LoadSceneCoroutine("Victory"));
 		}
+		
+		StartCoroutine(FadeOutMusic());
 	}
 	
 	private IEnumerator ExitToMenuCoroutine()
@@ -407,6 +411,8 @@ public class LockManager : MonoBehaviour
 	{
 		fightManager.StopAllCoroutines();
 		
+		StartCoroutine(FadeOutMusic());
+		
 		live = false;
 		invulnerable = true;
 		
@@ -454,6 +460,8 @@ public class LockManager : MonoBehaviour
 	{
 		fightManager.StopAllCoroutines();
 		
+		StartCoroutine(FadeOutMusic());
+		
 		foreach (Digit digit in digits)
 		{
 			digit.anim.Play("Digit_Defeat");
@@ -496,5 +504,36 @@ public class LockManager : MonoBehaviour
 		heroPipTransform.localScale = Vector3.one * 1000;
 		
 		defeatScreen.SetActive(true);
+	}
+	
+	private IEnumerator FadeOutMusic()
+	{
+		if(musicSource.volume < 0.08f)
+		{
+			yield break;
+		}
+		
+		//fade music from 0.08 to 0 over 0.5 seconds
+		float t = 0;
+		while (t < 0.5f)
+		{
+			t += Time.deltaTime;
+			musicSource.volume = Mathf.Lerp(0.08f, 0, t / 0.5f);
+			yield return null;
+		}
+		musicSource.volume = 0;
+	}
+	
+	private IEnumerator FadeInMusic()
+	{
+		//fade music from 0 to 0.08 over 0.5 seconds
+		float t = 0;
+		while (t < 0.5f)
+		{
+			t += Time.deltaTime;
+			musicSource.volume = Mathf.Lerp(0, 0.08f, t / 0.5f);
+			yield return null;
+		}
+		musicSource.volume = 0.08f;
 	}
 }

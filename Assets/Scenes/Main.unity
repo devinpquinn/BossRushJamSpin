@@ -1780,7 +1780,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291952639
+    rgba: 862805091
   m_fontColor: {r: 0.3882353, g: 0.36078432, b: 0.42745098, a: 0.2}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -3515,7 +3515,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.75
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -7187,7 +7187,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 862805091
+    rgba: 4285357155
   m_fontColor: {r: 0.3882353, g: 0.36078432, b: 0.42745098, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
