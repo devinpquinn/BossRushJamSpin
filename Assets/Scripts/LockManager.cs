@@ -21,6 +21,7 @@ public class LockManager : MonoBehaviour
 	
 	public Image healthMeter;
 	private float damage = 0;
+	private float maxDamage = 1.2f;
 	private Coroutine damageCoroutine;
 	
 	public Shake shake;
@@ -42,9 +43,9 @@ public class LockManager : MonoBehaviour
 	private int Boss2_Phase3 = 375;
 	private int Boss2_Solved = 550;
 	
-	private int Boss3_Phase2 = 175;
-	private int Boss3_Phase3 = 350;
-	private int Boss3_Phase4 = 500;
+	private int Boss3_Phase2 = 175; //large vertical
+	private int Boss3_Phase3 = 350; //strainers
+	private int Boss3_Phase4 = 500; //everything
 	private int Boss3_Solved = 600;
 	
 	private int boss = 1;
@@ -346,7 +347,7 @@ public class LockManager : MonoBehaviour
 		hitSource.panStereo = Mathf.Lerp(-0.5f, 0.5f, ((float)heroPip % 100) / 99f);
 		hitSource.PlayOneShot(hitClip);
 		
-		if(damage > 1.01f)
+		if(damage > maxDamage + 0.01f)
 		{
 			Debug.Log("Hero destroyed!");
 			live = false;
@@ -361,13 +362,13 @@ public class LockManager : MonoBehaviour
 	
 	private IEnumerator DamageMeter()
 	{
-		healthMeter.transform.parent.localScale = Vector3.one * Mathf.Lerp(1, 2f, damage / 1f) * 1.1f;
+		healthMeter.transform.parent.localScale = Vector3.one * Mathf.Lerp(1, 2f, damage / maxDamage) * 1.1f;
 		healthMeter.fillAmount = 1;
 		healthMeter.color = Color.white;
 		
 		yield return new WaitForSeconds(0.5f);
 		
-		healthMeter.transform.parent.localScale = Vector3.one * Mathf.Lerp(1, 2f, damage / 1f);
+		healthMeter.transform.parent.localScale = Vector3.one * Mathf.Lerp(1, 2f, damage / maxDamage);
 		healthMeter.fillAmount = Mathf.Lerp(0, 1, damage / 1f);
 		healthMeter.color = Color.red;
 	}
