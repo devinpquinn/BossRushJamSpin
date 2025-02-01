@@ -73,6 +73,10 @@ public class LockManager : MonoBehaviour
 	
 	public Texture2D defaultCursor;
 	
+	public List<GameObject> hands1;
+	public List<GameObject> hands2;
+	public List<GameObject> hands3;
+	
 	void Awake()
 	{
 		instance = this;
@@ -94,8 +98,22 @@ public class LockManager : MonoBehaviour
 			boss = 3;
 		}
 		
-		if(boss == 2)
+		if(boss == 1)
 		{
+			//set all hands1 to active
+			foreach(GameObject hand in hands1)
+			{
+				hand.SetActive(true);
+			}
+		}
+		else if(boss == 2)
+		{
+			//set all hands2 to active
+			foreach(GameObject hand in hands2)
+			{
+				hand.SetActive(true);
+			}
+			
 			bossText.text = "++";
 			
 			lvl3Text.text = "Level 0";
@@ -110,6 +128,12 @@ public class LockManager : MonoBehaviour
 		}
 		else if(boss == 3)
 		{
+			//set all hands3 to active
+			foreach(GameObject hand in hands3)
+			{
+				hand.SetActive(true);
+			}
+			
 			bossText.text = "+++";
 			
 			lvl3Text.text = "Level 1";

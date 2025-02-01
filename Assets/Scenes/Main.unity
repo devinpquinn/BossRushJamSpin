@@ -3675,6 +3675,15 @@ MonoBehaviour:
   boss2track: {fileID: 8300000, guid: 2daff9169c8078647b0c63552b040ef0, type: 3}
   boss3track: {fileID: 8300000, guid: facf9488cdaac734eb3f7be2c0f508be, type: 3}
   defaultCursor: {fileID: 2800000, guid: 7be0e82f5c00e2542ac83ebe4eb19baf, type: 3}
+  hands1:
+  - {fileID: 881877385}
+  - {fileID: 1827174909}
+  hands2:
+  - {fileID: 1912808374}
+  - {fileID: 964610437}
+  hands3:
+  - {fileID: 223459028}
+  - {fileID: 969494300}
 --- !u!82 &670940171
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5900,7 +5909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3882353, g: 0.36078432, b: 0.42745098, a: 0.5019608}
+  m_Color: {r: 0.3882353, g: 0.36078432, b: 0.42745098, a: 0.32941177}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10941,7 +10950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3882353, g: 0.36078432, b: 0.42745098, a: 0.5019608}
+  m_Color: {r: 0.3882353, g: 0.36078432, b: 0.42745098, a: 0.32941177}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
