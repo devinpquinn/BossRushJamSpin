@@ -51,7 +51,7 @@ public class Digit : MonoBehaviour
 	//highlight digit when mouse is over it
 	void OnMouseEnter()
 	{
-		if(!LockManager.live)
+		if(!LockManager.live || Time.timeScale == 0)
 		{
 			return;
 		}

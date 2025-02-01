@@ -6,6 +6,7 @@ public class ActivateObject : MonoBehaviour
 	
 	public void Activate()
 	{
+		LockManager.live = true;
 		target.SetActive(true);
 	}
 }

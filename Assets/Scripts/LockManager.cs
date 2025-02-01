@@ -190,9 +190,6 @@ public class LockManager : MonoBehaviour
 		
 		//set up progress pips based on number of possible combinations of digits
 		progressPips.SetupPips((int)Mathf.Pow(10, digits.Count));
-		
-		//set live
-		live = true;
 	}
 	
 	void GenerateCode()
