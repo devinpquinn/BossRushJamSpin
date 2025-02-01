@@ -21,7 +21,7 @@ public class LockManager : MonoBehaviour
 	
 	public Image healthMeter;
 	private float damage = 0;
-	private float maxDamage = 1.1f;
+	private float maxDamage = 1f;
 	private Coroutine damageCoroutine;
 	
 	public Shake shake;
@@ -105,6 +105,8 @@ public class LockManager : MonoBehaviour
 			level3text.text = "Level 0";
 			
 			musicSource.clip = boss2track;
+			
+			maxDamage = 1.2f;
 		}
 		else if(boss == 3)
 		{
@@ -117,6 +119,8 @@ public class LockManager : MonoBehaviour
 			level3text.text = "Level 1";
 			
 			musicSource.clip = boss3track;
+			
+			maxDamage = 1.5f;
 		}
 		
 		//start the fight
