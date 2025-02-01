@@ -21,7 +21,7 @@ public class LockManager : MonoBehaviour
 	
 	public Image healthMeter;
 	private float damage = 0;
-	private float maxDamage = 1.2f;
+	private float maxDamage = 1.1f;
 	private Coroutine damageCoroutine;
 	
 	public Shake shake;
@@ -46,7 +46,7 @@ public class LockManager : MonoBehaviour
 	private int Boss3_Phase2 = 175; //large vertical
 	private int Boss3_Phase3 = 350; //strainers
 	private int Boss3_Phase4 = 500; //everything
-	private int Boss3_Solved = 600;
+	private int Boss3_Solved = 650;
 	
 	private int boss = 1;
 	
