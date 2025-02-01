@@ -106,7 +106,7 @@ public class LockManager : MonoBehaviour
 			
 			musicSource.clip = boss2track;
 			
-			maxDamage = 1.2f;
+			maxDamage = 1f;
 		}
 		else if(boss == 3)
 		{
@@ -120,7 +120,7 @@ public class LockManager : MonoBehaviour
 			
 			musicSource.clip = boss3track;
 			
-			maxDamage = 1.5f;
+			maxDamage = 2f;
 		}
 		
 		//start the fight
