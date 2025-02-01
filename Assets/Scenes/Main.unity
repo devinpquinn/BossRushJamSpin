@@ -758,6 +758,7 @@ GameObject:
   - component: {fileID: 202120309}
   - component: {fileID: 202120311}
   - component: {fileID: 202120310}
+  - component: {fileID: 202120312}
   m_Layer: 5
   m_Name: WelcomeBackground
   m_TagString: Untagged
@@ -970,6 +971,19 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: 9c89c8ce8ea32a84d903dec5c00659f3, type: 3}
   - {fileID: 8300000, guid: 0cc250acefd6dba4ba63d35797e795e9, type: 3}
+--- !u!114 &202120312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202120304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619f73da1f01f4043b5c4e3befadc88d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 525643287}
 --- !u!1 &232807881
 GameObject:
   m_ObjectHideFlags: 0
@@ -1766,7 +1780,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 862805091
+    rgba: 4291952639
   m_fontColor: {r: 0.3882353, g: 0.36078432, b: 0.42745098, a: 0.2}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -3485,6 +3499,9 @@ MonoBehaviour:
   level3text: {fileID: 1453462431}
   victoryClip: {fileID: 8300000, guid: e55e3746b0106064799f309e0026b16d, type: 3}
   defeatClip: {fileID: 8300000, guid: 89f9df40b6da395409830c040fa74a7b, type: 3}
+  musicSource: {fileID: 525643288}
+  boss2track: {fileID: 8300000, guid: 2daff9169c8078647b0c63552b040ef0, type: 3}
+  boss3track: {fileID: 8300000, guid: facf9488cdaac734eb3f7be2c0f508be, type: 3}
 --- !u!82 &670940171
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7170,7 +7187,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285357155
+    rgba: 862805091
   m_fontColor: {r: 0.3882353, g: 0.36078432, b: 0.42745098, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3

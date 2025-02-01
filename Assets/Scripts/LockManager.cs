@@ -66,6 +66,10 @@ public class LockManager : MonoBehaviour
 	public AudioClip victoryClip;
 	public AudioClip defeatClip;
 	
+	public AudioSource musicSource;
+	public AudioClip boss2track;
+	public AudioClip boss3track;
+	
 	void Awake()
 	{
 		instance = this;
@@ -91,6 +95,8 @@ public class LockManager : MonoBehaviour
 			level1text.text = "Level 2";
 			level2text.text = "Level 3";
 			level3text.text = "Level 0";
+			
+			musicSource.clip = boss2track;
 		}
 		else if(boss >= 3)
 		{
@@ -101,6 +107,8 @@ public class LockManager : MonoBehaviour
 			level1text.text = "Level 3";
 			level2text.text = "Level 0";
 			level3text.text = "Level 1";
+			
+			musicSource.clip = boss3track;
 		}
 		
 		//start the fight
