@@ -369,7 +369,7 @@ public class LockManager : MonoBehaviour
 		yield return new WaitForSeconds(0.5f);
 		
 		healthMeter.transform.parent.localScale = Vector3.one * Mathf.Lerp(1, 2f, damage / maxDamage);
-		healthMeter.fillAmount = Mathf.Lerp(0, 1, damage / 1f);
+		healthMeter.fillAmount = Mathf.Lerp(0, 1, damage / maxDamage);
 		healthMeter.color = Color.red;
 	}
 	
