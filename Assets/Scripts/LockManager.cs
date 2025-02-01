@@ -46,7 +46,8 @@ public class LockManager : MonoBehaviour
 	private int Boss3_Phase2 = 175; //large vertical
 	private int Boss3_Phase3 = 350; //strainers
 	private int Boss3_Phase4 = 500; //everything
-	private int Boss3_Solved = 650;
+	//private int Boss3_Solved = 650;
+	private int Boss3_Solved = 10;
 	
 	private int boss = 1;
 	
@@ -87,6 +88,11 @@ public class LockManager : MonoBehaviour
 			boss = PlayerPrefs.GetInt("Boss");
 		}
 		
+		if(boss > 3)
+		{
+			boss = 3;
+		}
+		
 		if(boss == 2)
 		{
 			bossText.text = "++";
@@ -99,7 +105,7 @@ public class LockManager : MonoBehaviour
 			
 			musicSource.clip = boss2track;
 		}
-		else if(boss >= 3)
+		else if(boss == 3)
 		{
 			bossText.text = "+++";
 			
@@ -146,13 +152,13 @@ public class LockManager : MonoBehaviour
 	public void LoadScene()
 	{
 		Time.timeScale = 1;
-		if(boss < 4)
+		if(PlayerPrefs.HasKey("Boss") && PlayerPrefs.GetInt("Boss") > 3)
 		{
-			StartCoroutine(LoadSceneCoroutine());
+			StartCoroutine(LoadSceneCoroutine("Victory"));
 		}
 		else
 		{
-			StartCoroutine(LoadSceneCoroutine("Victory"));
+			StartCoroutine(LoadSceneCoroutine());
 		}
 		
 		StartCoroutine(FadeOutMusic());
