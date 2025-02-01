@@ -1724,7 +1724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3585455123405691940, guid: afe22e1066f5d8648ac61cf91ed96927, type: 3}
       propertyPath: m_text
-      value: Credit Goes Here
+      value: moodmode
       objectReference: {fileID: 0}
     - target: {fileID: 4250504120055859180, guid: afe22e1066f5d8648ac61cf91ed96927, type: 3}
       propertyPath: m_text
@@ -1736,7 +1736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6267036400423897683, guid: afe22e1066f5d8648ac61cf91ed96927, type: 3}
       propertyPath: m_text
-      value: Credit Goes Here
+      value: moodmode
       objectReference: {fileID: 0}
     - target: {fileID: 8501561319676167157, guid: afe22e1066f5d8648ac61cf91ed96927, type: 3}
       propertyPath: m_text
@@ -3339,8 +3339,8 @@ RectTransform:
   m_Children:
   - {fileID: 8463072}
   - {fileID: 1074910827}
-  - {fileID: 221516256}
   - {fileID: 1011212887}
+  - {fileID: 221516256}
   m_Father: {fileID: 455992828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
