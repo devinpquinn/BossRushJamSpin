@@ -65,15 +65,15 @@ public class Digit : MonoBehaviour
 	//unhighlight digit when mouse leaves it
 	void OnMouseExit()
 	{
+		//set cursor
+		Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
+		
 		if(!LockManager.live)
 		{
 			return;
 		}
 		
 		anim.Play("Digit_Deselect");
-		
-		//set cursor
-		Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
 	}
 	
 	//if player scrolls mouse wheel while hovering over digit, increase or decrease value
