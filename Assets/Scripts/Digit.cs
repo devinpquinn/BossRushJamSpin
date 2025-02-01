@@ -25,6 +25,9 @@ public class Digit : MonoBehaviour
 	public AudioSource pipSource;
 	public AudioClip markSound;
 	public AudioClip bumpSound;
+	
+	public Texture2D defaultCursor;
+	public Texture2D hoverCursor;
 
 	private void Awake()
 	{
@@ -54,6 +57,9 @@ public class Digit : MonoBehaviour
 		}
 			
 		anim.Play("Digit_Select");
+		
+		//set cursor
+		Cursor.SetCursor(hoverCursor, Vector2.zero, CursorMode.Auto);
 	}
 	
 	//unhighlight digit when mouse leaves it
@@ -65,6 +71,9 @@ public class Digit : MonoBehaviour
 		}
 		
 		anim.Play("Digit_Deselect");
+		
+		//set cursor
+		Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
 	}
 	
 	//if player scrolls mouse wheel while hovering over digit, increase or decrease value

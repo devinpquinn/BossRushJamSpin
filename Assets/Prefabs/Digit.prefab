@@ -581,6 +581,8 @@ MonoBehaviour:
   pipSource: {fileID: 0}
   markSound: {fileID: 8300000, guid: 7d68aaa7a10009442a8a003fa3b8ee93, type: 3}
   bumpSound: {fileID: 8300000, guid: 924283d21448dfc4087264fd861ed4c3, type: 3}
+  defaultCursor: {fileID: 2800000, guid: 7be0e82f5c00e2542ac83ebe4eb19baf, type: 3}
+  hoverCursor: {fileID: 2800000, guid: cf40878511928924aa1a3bae37ee7027, type: 3}
 --- !u!61 &8423891590024869630
 BoxCollider2D:
   m_ObjectHideFlags: 0
