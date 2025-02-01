@@ -46,8 +46,7 @@ public class LockManager : MonoBehaviour
 	private int Boss3_Phase2 = 175; //large vertical
 	private int Boss3_Phase3 = 350; //strainers
 	private int Boss3_Phase4 = 500; //everything
-	//private int Boss3_Solved = 650;
-	private int Boss3_Solved = 10;
+	private int Boss3_Solved = 650;
 	
 	private int boss = 1;
 	
@@ -71,6 +70,8 @@ public class LockManager : MonoBehaviour
 	public AudioSource musicSource;
 	public AudioClip boss2track;
 	public AudioClip boss3track;
+	
+	public Texture2D defaultCursor;
 	
 	void Awake()
 	{
@@ -417,6 +418,8 @@ public class LockManager : MonoBehaviour
 		
 		StartCoroutine(FadeOutMusic());
 		
+		Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
+		
 		live = false;
 		invulnerable = true;
 		
@@ -465,6 +468,8 @@ public class LockManager : MonoBehaviour
 		fightManager.StopAllCoroutines();
 		
 		StartCoroutine(FadeOutMusic());
+		
+		Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
 		
 		foreach (Digit digit in digits)
 		{
