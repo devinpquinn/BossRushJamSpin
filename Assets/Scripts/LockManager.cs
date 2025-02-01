@@ -106,7 +106,7 @@ public class LockManager : MonoBehaviour
 			
 			musicSource.clip = boss2track;
 			
-			maxDamage = 1f;
+			maxDamage = 1.2f;
 		}
 		else if(boss == 3)
 		{
