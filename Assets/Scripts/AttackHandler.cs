@@ -110,6 +110,7 @@ public class AttackHandler : MonoBehaviour
 				{
 					thisAttack = Instantiate(attacks[3], transform);
 					thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsRight[i].transform.position.y, thisAttack.transform.GetChild(0).position.z);
+					thisAttack.transform.GetComponentInChildren<Animator>().speed = 0.5f;
 				}
 				break;
 			case "StrainerLargeLeft": //HorizSmallLeft at indices 0, 2, 4, 6, and 8 simultaneously
@@ -118,6 +119,7 @@ public class AttackHandler : MonoBehaviour
 				{
 					thisAttack = Instantiate(attacks[2], transform);
 					thisAttack.transform.GetChild(0).position = new Vector3(thisAttack.transform.GetChild(0).position.x, warningsLeft[i].transform.position.y, thisAttack.transform.GetChild(0).position.z);
+					thisAttack.transform.GetComponentInChildren<Animator>().speed = 0.5f;
 				}
 				break;
 		}

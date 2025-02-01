@@ -327,19 +327,19 @@ public class FightManager : MonoBehaviour
 			yield return StartCoroutine(attackHandler.Attack("VertLargeRight"));
 			warningRight.PlayOneShot(vertLargeClip);
 			
-			yield return new WaitForSeconds(9);
+			yield return new WaitForSeconds(10);
 			
 			warningLeft.PlayOneShot(warningClip);
 			yield return StartCoroutine(attackHandler.Attack("VertLargeLeft"));
 			warningLeft.PlayOneShot(vertLargeClip);
 			
-			yield return new WaitForSeconds(9);
+			yield return new WaitForSeconds(10);
 			
 			warningCenter.PlayOneShot(warningClip);
 			yield return StartCoroutine(attackHandler.Attack("VertLargeBoth"));
 			warningCenter.PlayOneShot(vertLargeClip);
 			
-			yield return new WaitForSeconds(9);
+			yield return new WaitForSeconds(10);
 		}
 	}
 	
@@ -359,13 +359,13 @@ public class FightManager : MonoBehaviour
 			yield return StartCoroutine(attackHandler.Attack("StrainerLargeRight"));
 			warningRight.PlayOneShot(strainerClip);
 			
-			yield return new WaitForSeconds(3f);
+			yield return new WaitForSeconds(6);
 			
 			warningLeft.PlayOneShot(warningClip);
 			yield return StartCoroutine(attackHandler.Attack("StrainerLargeLeft"));
 			warningLeft.PlayOneShot(strainerClip);
 			
-			yield return new WaitForSeconds(5);
+			yield return new WaitForSeconds(8);
 		}
 	}
 	
@@ -417,31 +417,31 @@ public class FightManager : MonoBehaviour
 			yield return StartCoroutine(attackHandler.Attack("VertLargeRight"));
 			warningRight.PlayOneShot(vertLargeClip);
 			
-			yield return new WaitForSeconds(5);
+			yield return new WaitForSeconds(6);
 			
 			warningLeft.PlayOneShot(warningClip);
 			yield return StartCoroutine(attackHandler.Attack("VertLargeLeft"));
 			warningLeft.PlayOneShot(vertLargeClip);
 			
-			yield return new WaitForSeconds(5);
+			yield return new WaitForSeconds(6);
 			
 			warningCenter.PlayOneShot(warningClip);
 			yield return StartCoroutine(attackHandler.Attack("VertLargeBoth"));
 			warningCenter.PlayOneShot(vertLargeClip);
 			
-			yield return new WaitForSeconds(5);
+			yield return new WaitForSeconds(6);
 			
 			warningRight.PlayOneShot(warningClip);
 			yield return StartCoroutine(attackHandler.Attack("StrainerLargeRight"));
 			warningRight.PlayOneShot(strainerClip);
 			
-			yield return new WaitForSeconds(3f);
+			yield return new WaitForSeconds(6);
 			
 			warningLeft.PlayOneShot(warningClip);
 			yield return StartCoroutine(attackHandler.Attack("StrainerLargeLeft"));
 			warningLeft.PlayOneShot(strainerClip);
 			
-			yield return new WaitForSeconds(5);
+			yield return new WaitForSeconds(8);
 		}
 	}
 }
