@@ -2898,6 +2898,7 @@ MonoBehaviour:
   horizLargeClip: {fileID: 8300000, guid: 60afc33e6d589a04083c94284cd0751c, type: 3}
   vertLargeClip: {fileID: 8300000, guid: 8192135d365600a4ba999c8b6bdb73f3, type: 3}
   strainerClip: {fileID: 8300000, guid: 491a403d823cc9840bb605ce2c928370, type: 3}
+  handsParentAnim: {fileID: 1206472803}
 --- !u!1 &525643287
 GameObject:
   m_ObjectHideFlags: 0
@@ -7491,6 +7492,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1206472802}
+  - component: {fileID: 1206472804}
+  - component: {fileID: 1206472803}
   m_Layer: 5
   m_Name: HandsParent
   m_TagString: Untagged
@@ -7519,6 +7522,40 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1206472803
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206472801}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 32327cf2d9cde4b4ca8039ec36e6cd4f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!225 &1206472804
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206472801}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1209362152 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7642068138157303093, guid: 1645cc86ba55cc5429b3d9266d4d6440, type: 3}

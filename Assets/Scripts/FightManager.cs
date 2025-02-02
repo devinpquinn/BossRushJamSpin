@@ -17,6 +17,8 @@ public class FightManager : MonoBehaviour
 	public AudioClip vertLargeClip;
 	public AudioClip strainerClip;
 	
+	public Animator handsParentAnim;
+	
 	void Start()
 	{
 		attackHandler = GetComponent<AttackHandler>();
@@ -41,6 +43,7 @@ public class FightManager : MonoBehaviour
 	
 	public void SetPhase(int phase)
 	{
+		handsParentAnim.Play("HandsParent_Flicker", 0, 0);
 		StopAllCoroutines();
 		switch (boss)
 		{
